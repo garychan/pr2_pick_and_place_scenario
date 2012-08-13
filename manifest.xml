@@ -1,0 +1,16 @@
+<package>
+  <description brief="pr2_pick_and_place_scenario">
+
+     pr2_pick_and_place_scenario
+
+  </description>
+  <author>Jan Winkler</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/pr2_pick_and_place_scenario</url>
+  <depend package="cram_pr2_executive" />
+  <depend package="gazebo_perception_process_module" />
+
+</package>
+
+
