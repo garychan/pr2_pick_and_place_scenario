@@ -6,13 +6,14 @@
 ;;  #:cram-reasoning
   #:cpl
   #:roslisp
-  #:pr2-manipulation-process-module
+;;  #:pr2-manipulation-process-module
 ;;   #:cram-designators
   #:cram-utilities
 ;;   #:cram-process-modules
   #:cram-roslisp-common
-;;  #:cram-plan-knowledge
+  #:cram-plan-knowledge
 ;;   #:cram-plan-failures
-  ))
+  )
+ (:desig-props #:grasp))
 ;;  #:alexandria))
 ;; (:export #:handled-object-in-hand))
