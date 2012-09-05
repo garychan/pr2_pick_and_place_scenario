@@ -25,8 +25,12 @@
 
 (defmacro with-process-modules (&body body)
   `(cpm:with-process-modules-running
-       ((:manipulation pr2-manip-pm:pr2-manipulation-process-module)
-        (:navigation pr2-navigation-process-module:pr2-navigation-process-module)
-        (:perception gazebo-perception-pm:gazebo-perception-process-module)
-        (:ptu point-head-process-module:point-head-process-module))
+       (pr2-manip-pm:pr2-manipulation-process-module
+        pr2-navigation-process-module:pr2-navigation-process-module
+        gazebo-perception-pm:gazebo-perception-process-module
+        point-head-process-module:point-head-process-module)
      ,@body))
+
+(defun get-latest-exectrace ()
+  (cet:with-episode-knowledge cet:*last-episode-knowledge*
+    (cram-utilities:force-ll (crs:prolog `(and (task ?task))))))
