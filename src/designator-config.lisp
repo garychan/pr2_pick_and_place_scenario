@@ -30,15 +30,42 @@
 
 (in-package :pr2-pnp)
 
-(cram-reasoning:def-fact-group costmap-metadata ()
-  (cram-reasoning:<- (costmap-size 25 25))
-  (cram-reasoning:<- (costmap-origin -12.5 -12.5))
-  (cram-reasoning:<- (costmap-resolution 0.05))
+(def-fact-group costmap-metadata ()
+  (<- (costmap-size 5 5))
+  (<- (costmap-origin -2.5 -2.5))
+  (<- (costmap-resolution 0.05))
 
-  (cram-reasoning:<- (costmap-padding 0.35))
-  (cram-reasoning:<- (costmap-manipulation-padding 0.35))
-  (cram-reasoning:<- (costmap-in-reach-distance 1.0))
-  (cram-reasoning:<- (costmap-reach-minimal-distance 0.1)))
+  (<- (costmap-padding 0.45))
+  (<- (costmap-manipulation-padding 0.45))
+  (<- (costmap-in-reach-distance 1.0))
+  (<- (costmap-reach-minimal-distance 0.1)))
 
-;;(cram-reasoning:def-fact-group semantic-map-metadata ()
-;;  (cram-reasoning:<- (semantic-map-obj btr::sem-map)))
+(def-fact-group process-modules (matching-process-module available-process-module)
+  (<- (matching-process-module ?designator gazebo-perception-process-module)
+    (desig-prop ?designator (to perceive))))
+
+  ;; (<- (matching-process-module ?designator projection-ptu)
+  ;;   (trajectory-desig? ?designator)
+  ;;   (or (desig-prop ?designator (to see))
+  ;;       (desig-prop ?designator (to follow))))
+
+  ;; (<- (matching-process-module ?designator projection-manipulation)
+  ;;   (trajectory-desig? ?designator)
+  ;;   (not
+  ;;    (or (desig-prop ?designator (to see))
+  ;;        (desig-prop ?designator (to follow)))))
+  
+  ;; (<- (matching-process-module ?designator projection-navigation)
+  ;;   (desig-prop ?designator (type navigation)))
+
+  ;; (<- (available-process-module projection-ptu)
+  ;;   (symbol-value *projection-environment* pr2-bullet-projection-environment))
+
+  ;; (<- (available-process-module projection-perception)
+  ;;   (symbol-value *projection-environment* pr2-bullet-projection-environment))
+
+  ;; (<- (available-process-module projection-manipulation)
+  ;;   (symbol-value *projection-environment* pr2-bullet-projection-environment))
+
+  ;; (<- (available-process-module projection-navigation)
+  ;;   (symbol-value *projection-environment* pr2-bullet-projection-environment)))

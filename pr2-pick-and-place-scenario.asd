@@ -9,6 +9,7 @@
                point-head-process-module
                pr2-navigation-process-module
                gazebo-perception-process-module
+	       occupancy-grid-costmap
                perception-process-module)
   :components
   ((:module "src"
