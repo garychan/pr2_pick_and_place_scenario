@@ -47,4 +47,4 @@
 	    :components
 	    ((:file "package")
              (:file "designator-config" :depends-on ("package"))
-	     (:file "pr2-pnp" :depends-on ("package"))))))
+	     (:file "pr2-pnp" :depends-on ("package" "designator-config"))))))
