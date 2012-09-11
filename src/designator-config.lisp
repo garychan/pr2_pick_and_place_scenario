@@ -27,18 +27,18 @@
 
 (in-package :pr2-pnp)
 
-(def-fact-group costmap-metadata ()
-  (<- (costmap-size 5 5))
-  (<- (costmap-origin -2.5 -2.5))
-  (<- (costmap-resolution 0.05))
+(crs:def-fact-group costmap-metadata ()
+  (crs:<- (costmap-size 5 5))
+  (crs:<- (costmap-origin -2.5 -2.5))
+  (crs:<- (costmap-resolution 0.05))
 
-  (<- (costmap-padding 0.45))
-  (<- (costmap-manipulation-padding 0.45))
-  (<- (costmap-in-reach-distance 1.0))
-  (<- (costmap-reach-minimal-distance 0.1)))
+  (crs:<- (costmap-padding 0.45))
+  (crs:<- (costmap-manipulation-padding 0.45))
+  (crs:<- (costmap-in-reach-distance 1.0))
+  (crs:<- (costmap-reach-minimal-distance 0.1)))
 
-(def-fact-group process-modules (matching-process-module available-process-module)
-  (<- (matching-process-module ?designator gazebo-perception-process-module)
+(crs:def-fact-group process-modules (matching-process-module available-process-module)
+  (crs:<- (matching-process-module ?designator gazebo-perception-process-module)
     (desig-prop ?designator (to perceive))))
 
   ;; (<- (matching-process-module ?designator projection-ptu)
