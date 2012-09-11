@@ -38,13 +38,20 @@
   (crs:<- (costmap-reach-minimal-distance 0.1)))
 
 (crs:def-fact-group process-modules (matching-process-module available-process-module)
-  (crs:<- (matching-process-module ?designator gazebo-perception-process-module)
-    (desig-prop ?designator (to perceive))))
 
-  ;; (<- (matching-process-module ?designator projection-ptu)
+  (crs:<- (matching-process-module ?designator gazebo-perception-process-module)
+    (desig-prop ?designator (to perceive)))
+
+  (crs:<- (matching-process-module ?designator point-head-process-module)
+    (trajectory-desig? ?designator)
+    (or (desig-prop ?designator (to see))
+        (desig-prop ?designator (to follow)))))
+
+  ;; (crs:<- (matching-process-module ?designator pr2-manipulation-process-module)
   ;;   (trajectory-desig? ?designator)
-  ;;   (or (desig-prop ?designator (to see))
-  ;;       (desig-prop ?designator (to follow))))
+  ;;   (not
+  ;;    (or (desig-prop ?designator (to see))
+  ;;        (desig-prop ?designator (to follow))))))
 
   ;; (<- (matching-process-module ?designator projection-manipulation)
   ;;   (trajectory-desig? ?designator)
