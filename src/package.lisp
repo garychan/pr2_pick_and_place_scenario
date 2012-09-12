@@ -29,4 +29,5 @@
  (:nicknames :pr2-pnp)
  (:use #:location-costmap #:roslisp #:cram-utilities #:cpl
        #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators)
- (:desig-properties #:grasp #:to))
+ (:desig-props #:name)
+ (:desig-properties #:grasp #:to #:name))
