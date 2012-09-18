@@ -9,6 +9,9 @@
   <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
     <remap from="cloud_in" to="tilt_scan_cloud_filtered2" />
     <remap from="projected_map" to="map" />
+    <rosparam>
+      filter_ground: true
+    </rosparam>
   </node>
   
   <!-- load an empty world -->
