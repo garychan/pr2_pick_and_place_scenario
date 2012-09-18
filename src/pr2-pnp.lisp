@@ -59,9 +59,9 @@
    :object-pose pose-stamped
    :handles `((,(tf:make-pose (tf:make-3d-vector 0.13 0 0.06) (tf:euler->quaternion :ax (/ pi 2))) 0.01))))
 
-(defmethod cram-plan-knowledge:holds ((occasion t) &optional time)
-  (declare (ignore time))
-  nil)
+;(defmethod cram-plan-knowledge:holds ((occasion t) &optional time)
+;  (declare (ignore time))
+;  nil)
 
 (defun get-latest-exectrace ()
   (cet:with-episode-knowledge cet:*last-episode-knowledge*

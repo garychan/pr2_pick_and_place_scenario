@@ -25,17 +25,17 @@
 ;;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ;;; POSSIBILITY OF SUCH DAMAGE.
 
-(in-package :pr2-pnp)
+(in-package :location-costmap)
 
 (crs:def-fact-group costmap-metadata ()
   (crs:<- (costmap-size 5 5))
   (crs:<- (costmap-origin -2.5 -2.5))
-  (crs:<- (costmap-resolution 0.05))
+  (crs:<- (costmap-resolution 0.02))
 
-  (crs:<- (costmap-padding 0.45))
-  (crs:<- (costmap-manipulation-padding 0.45))
-  (crs:<- (costmap-in-reach-distance 1.0))
-  (crs:<- (costmap-reach-minimal-distance 0.1)))
+  (crs:<- (costmap-padding 0.1))
+  (crs:<- (costmap-manipulation-padding 0.1))
+  (crs:<- (costmap-in-reach-distance 0.15))
+  (crs:<- (costmap-reach-minimal-distance 0.05)))
 
 (crs:def-fact-group process-modules (matching-process-module available-process-module)
 
@@ -46,6 +46,20 @@
     (trajectory-desig? ?designator)
     (or (desig-prop ?designator (to see))
         (desig-prop ?designator (to follow)))))
+
+;;(def-fact-group location-costmap-desigs (desig-costmap)
+
+  ;; (crs:<- (desig-costmap ?desig ?cm)
+  ;;   (desig-prop ?desig (to grasp))
+  ;;   (costmap ?cm)
+  ;;   (lisp-fun 2d-pose-covariance ?poses 0.5 (?mean ?covariance))
+  ;;   (costmap-add-function pose-distribution (make-gauss-cost-function ?mean ?covariance) ?cm))
+
+  ;; (crs:<- (merged-desig-costmap ?desig ?cm)
+  ;;   ;; bagof collects all true solutions for c into costmaps
+  ;;   (bagof ?c (desig-costmap ?desig ?c) ?costmaps)
+  ;;   (lisp-fun merge-costmaps ?costmaps ?cm)))
+
 
   ;; (crs:<- (matching-process-module ?designator pr2-manipulation-process-module)
   ;;   (trajectory-desig? ?designator)
