@@ -11,7 +11,7 @@
     </rosparam>
   </node>
 
-  <node name="map_server_node" pkg="map_server" type="map_server" args="maps/map.yaml" />
+  <node name="map_server_node" pkg="map_server" type="map_server" args="$(find pr2_pick_and_place_scenario)/maps/map.yaml" />
   <!-- <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
     <remap from="cloud_in" to="tilt_scan_cloud_filtered2" />
     <remap from="projected_map" to="map" />
