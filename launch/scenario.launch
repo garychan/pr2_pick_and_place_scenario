@@ -6,7 +6,10 @@
   <!-- odom_combined to map publisher node -->
   <node name="map_to_odom_publisher" type="static_transform_publisher" pkg="tf" args="0 0 0 0 0 0 map odom_combined 100"/>
 
-  <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node" args="cloud_in:=tilt_scan_cloud_filtered2 projected_map:=map" />
+  <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
+    <remap from="cloud_in" to="tilt_scan_cloud_filtered2" />
+    <remap from="projected_map" to="map" />
+  </node>
   
   <!-- load an empty world -->
   <!-- <include file="$(find gazebo_worlds)/launch/empty_world.launch"/> -->
