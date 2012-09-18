@@ -32,6 +32,7 @@
   
   :depends-on (cram-language
 	       roslisp
+	       pr2-reachability-costmap
                cram-plan-library
                cram-plan-knowledge
 	       pr2-manipulation-process-module
@@ -41,7 +42,7 @@
                pr2-navigation-process-module
                gazebo-perception-process-module
 	       occupancy-grid-costmap
-               perception-process-module)
+	       simple-belief)
   :components
   ((:module "src"
 	    :components

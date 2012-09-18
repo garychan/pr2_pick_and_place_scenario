@@ -9,6 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/pr2_pick_and_place_scenario</url>
 
+  <depend package="pr2_reachability_costmap" />
   <depend package="gazebo_perception_process_module" />
   <depend package="pr2_manipulation_process_module" />
   <depend package="pr2_navigation_process_module" />
@@ -16,6 +17,7 @@
   <depend package="gazebo" />
   <depend package="occupancy_grid_costmap" />
   <depend package="octomap_server" />
+  <depend package="simple_belief" />
 
   <export>
     <gazebo gazebo_media_path="${prefix}/models"/>

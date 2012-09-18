@@ -28,6 +28,7 @@
 (desig-props:def-desig-package pr2-pick-and-place-scenario
  (:nicknames :pr2-pnp)
  (:use #:location-costmap #:roslisp #:cram-utilities #:cpl
-       #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators)
+       #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators
+       #:simple-belief)
  (:desig-props #:name)
  (:desig-properties #:grasp #:to #:name))
