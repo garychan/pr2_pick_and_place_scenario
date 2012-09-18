@@ -11,13 +11,14 @@
     </rosparam>
   </node>
 
-  <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
+  <node name="map_server_node" pkg="map_server" type="map_server" args="maps/map.yaml" />
+  <!-- <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
     <remap from="cloud_in" to="tilt_scan_cloud_filtered2" />
     <remap from="projected_map" to="map" />
     <rosparam>
       filter_ground: true
     </rosparam>
-  </node>
+  </node> -->
   
   <!-- load an empty world -->
   <!-- <include file="$(find gazebo_worlds)/launch/empty_world.launch"/> -->
