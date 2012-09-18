@@ -4,11 +4,19 @@
   <include file="$(find pr2_manipulation_process_module)/launch/pr2_manipulation.launch"/>
   
   <!-- odom_combined to map publisher node -->
-  <node name="map_to_odom_publisher" type="static_transform_publisher" pkg="tf" args="0 0 0 0 0 0 map odom_combined 100"/>
+  <node name="pr2_fake_localization" type="fake_localization" pkg="fake_localization">
+    <rosparam>
+      base_frame_id: base_footprint
+      odom_frame_id: odom_combined
+    </rosparam>
+  </node>
 
   <node name="occupancy_grid" pkg="octomap_server" type="octomap_server_node">
     <remap from="cloud_in" to="tilt_scan_cloud_filtered2" />
     <remap from="projected_map" to="map" />
+    <rosparam>
+      filter_ground: true
+    </rosparam>
   </node>
   
   <!-- load an empty world -->
