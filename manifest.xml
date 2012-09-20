@@ -18,6 +18,7 @@
   <depend package="occupancy_grid_costmap" />
   <depend package="octomap_server" />
   <depend package="simple_belief" />
+  <depend package="cram_physics_utils" />
 
   <export>
     <gazebo gazebo_media_path="${prefix}/models"/>
