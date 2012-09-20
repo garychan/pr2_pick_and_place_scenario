@@ -43,7 +43,9 @@
                gazebo-perception-process-module
 	       occupancy-grid-costmap
 	       simple-belief
-	       physics-utils)
+	       simple-knowledge
+	       physics-utils
+	       cram-gazebo-utilities)
   :components
   ((:module "src"
 	    :components
