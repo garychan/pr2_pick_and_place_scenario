@@ -119,3 +119,11 @@
                               (tf:make-3d-vector 1.8 0.6 1.0)
                               (tf:euler->quaternion :az 1.57))
                        :file (model-path "Green_Bottle.urdf")))
+
+;; NOTE(winkler): The following two functions are not working yet. To
+;; be fixed.
+(defun objects-with-type (type)
+  (force-ll (crs:prolog `(object-type ?name ,type))))
+
+(defun object-type-for-name (name)
+  (force-ll (crs:prolog `(object-type ,name type?))))
