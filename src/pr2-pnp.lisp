@@ -36,7 +36,6 @@
      ,@body))
 
 (def-top-level-plan pick-and-place-scenario (object-name)
-  ;; NOTE(winkler): Function changed. Now, the scenario takes an object identifier as it's only parameter. Atm, this only works with "mug", since later on, a mug designator is generated. This has nothing to do with the pose of the object, but with the handles on the object (this must be defined per-object). To be moved into knowledge base later.
   (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
   (with-process-modules
     (let* ((perceived-object (perceive-named-object object-name))
