@@ -29,22 +29,21 @@
 
 (defvar *object-list* () "List of objects to spawn in the environment")
 
-(defun add-object-to-spawn (&key name type handles pose file)
+(defun add-object-to-spawn (&key name handles pose file)
   (setf *object-list*
         (append *object-list*
-                (list (list name type handles pose file)))))
+                (list (list name handles pose file)))))
 
 (defun spawn-objects ()
   (loop for object-data in *object-list*
         do (spawn-gazebo-model
             (first object-data)
-            (fourth object-data)
-            (fifth object-data))))
+            (third object-data)
+            (fourth object-data))))
 
 (defun fill-object-list ()
   (setf *object-list* ())
   (add-object-to-spawn :name "mug"
-                       :type "mug"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.13 0 0.06)
                                      (tf:euler->quaternion :ax (/ pi 2)))
@@ -56,7 +55,6 @@
                               (tf:make-identity-rotation))
                        :file (model-path "mug.urdf"))
   (add-object-to-spawn :name "cooking_pot"
-                       :type "pot"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.175 0.0 0.12)
                                      (tf:make-identity-rotation))
@@ -72,7 +70,6 @@
                               (tf:make-identity-rotation))
                        :file (model-path "Cookingpot_2.urdf"))
   (add-object-to-spawn :name "iron"
-                       :type "iron"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.0 0.06 0.14)
                                      (tf:euler->quaternion :ay (/ pi -2) :az pi))
@@ -84,7 +81,6 @@
                               (tf:euler->quaternion :az 1.57))
                        :file (model-path "iron_2.urdf"))
   (add-object-to-spawn :name "green_bottle"
-                       :type "bottle"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.0 0.0 0.075)
                                      (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))

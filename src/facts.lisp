@@ -25,31 +25,10 @@
 ;;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ;;; POSSIBILITY OF SUCH DAMAGE.
 
-(defsystem pr2-pick-and-place-scenario
-  :author "Jan Winkler <winkler@cs.uni-bremen.de>"
-  :license "BSD"
-  :description "PR2 Pick and Place Scenario"
-  
-  :depends-on (cram-language
-	       roslisp
-	       pr2-reachability-costmap
-               cram-plan-library
-               cram-plan-knowledge
-	       pr2-manipulation-process-module
-               cram-reasoning
-               location-costmap
-               point-head-process-module
-               pr2-navigation-process-module
-               gazebo-perception-process-module
-	       occupancy-grid-costmap
-	       simple-belief
-	       physics-utils)
-  :components
-  ((:module "src"
-	    :components
-	    ((:file "package")
-             (:file "designator-config" :depends-on ("package"))
-	     (:file "facts" :depends-on ("package"))
-	     (:file "utils" :depends-on ("package" "facts"))
-	     (:file "object-database" :depends-on ("package" "utils" "facts"))
-	     (:file "pr2-pnp" :depends-on ("package" "designator-config" "object-database" "utils" "facts"))))))
+(in-package :pr2-pick-and-place-scenario)
+
+(crs:def-fact-group gazebo-object-types ()
+  (crs:<- (object-type "mug" mug))
+  (crs:<- (object-type "cooking_pot" pot))
+  (crs:<- (object-type "iron" iron))
+  (crs:<- (object-type "green_bottle" bottle)))
