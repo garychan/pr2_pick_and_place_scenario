@@ -58,7 +58,3 @@
 (def-plan perceive-named-object (object-name)
   (with-designators ((mug (object `((desig-props:name ,object-name)))))
     (cram-plan-library:perceive-object 'cram-plan-library:a mug)))
-
-(defun get-latest-exectrace ()
-  (cet:with-episode-knowledge cet:*last-episode-knowledge*
-    (cram-utilities:force-ll (crs:prolog `(and (task ?task))))))

@@ -55,3 +55,7 @@
   (physics-utils:parse-uri (concatenate 'string
                                          "package://pr2_pick_and_place_scenario/models/"
                                          name)))
+
+(defun get-latest-exectrace ()
+  (cet:with-episode-knowledge cet:*last-episode-knowledge*
+    (cram-utilities:force-ll (crs:prolog `(and (task ?task))))))
