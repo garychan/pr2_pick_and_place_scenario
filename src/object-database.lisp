@@ -27,23 +27,8 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
-(defvar *object-list* () "List of objects to spawn in the environment")
-
-(defun add-object-to-spawn (&key name handles pose file)
-  (setf *object-list*
-        (append *object-list*
-                (list (list name handles pose file)))))
-
-(defun spawn-objects ()
-  (loop for object-data in *object-list*
-        do (spawn-gazebo-model
-            (first object-data)
-            (third object-data)
-            (fourth object-data))))
-
 (defun fill-object-list ()
-  (setf *object-list* ())
-  (add-object-to-spawn :name "mug"
+  (simple-knowledge::add-object-to-spawn :name "mug"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.13 0 0.06)
                                      (tf:euler->quaternion :ax (/ pi 2)))
@@ -54,7 +39,7 @@
                               (tf:make-3d-vector -1.5 -1.0 0.6)
                               (tf:make-identity-rotation))
                        :file (model-path "mug.urdf"))
-  (add-object-to-spawn :name "cooking_pot"
+  (simple-knowledge::add-object-to-spawn :name "cooking_pot"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.175 0.0 0.12)
                                      (tf:make-identity-rotation))
@@ -69,7 +54,7 @@
                               (tf:make-3d-vector -1.0 -1.46 0.6)
                               (tf:make-identity-rotation))
                        :file (model-path "Cookingpot_2.urdf"))
-  (add-object-to-spawn :name "iron"
+  (simple-knowledge::add-object-to-spawn :name "iron"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.0 0.06 0.14)
                                      (tf:euler->quaternion :ay (/ pi -2) :az pi))
@@ -80,7 +65,7 @@
                               (tf:make-3d-vector 1.8 0.2 1.0)
                               (tf:euler->quaternion :az 1.57))
                        :file (model-path "iron_2.urdf"))
-  (add-object-to-spawn :name "green_bottle"
+  (simple-knowledge::add-object-to-spawn :name "green_bottle"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.0 0.0 0.075)
                                      (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))
@@ -119,11 +104,3 @@
                               (tf:make-3d-vector 1.8 0.6 1.0)
                               (tf:euler->quaternion :az 1.57))
                        :file (model-path "Green_Bottle.urdf")))
-
-;; NOTE(winkler): The following two functions are not working yet. To
-;; be fixed.
-(defun objects-with-type (type)
-  (force-ll (crs:prolog `(object-type ?name ,type))))
-
-(defun object-type-for-name (name)
-  (force-ll (crs:prolog `(object-type ,name ?type))))

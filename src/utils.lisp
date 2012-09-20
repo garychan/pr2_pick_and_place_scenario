@@ -27,30 +27,6 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
-(defun file-string (path)
-  (with-open-file (s path)
-    (let* ((len (file-length s))
-           (data (make-string len)))
-     (multiple-value-bind (string length) (values data (read-sequence data s))
-        (declare (ignore length))
-        string))))
-
-(defun spawn-gazebo-model (name pose urdf-file)
-  (call-service "gazebo/spawn_urdf_model"
-                'gazebo_msgs-srv:spawnmodel
-                :model_name name
-                :model_xml (file-string urdf-file)
-                :initial_pose (tf:pose->msg pose)
-                :reference_frame (tf:frame-id pose)))
-
-(defun set-model-state (model-name new-pose)
-  (call-service "gazebo/set_model_state"
-                'gazebo_msgs-srv:setmodelstate
-                :model_state (make-msg "gazebo_msgs/ModelState"
-                                       :model_name model-name
-                                       :pose (tf:pose->msg new-pose)
-                                       :reference_frame (tf:frame-id new-pose))))
-
 (defun model-path (name)
   (physics-utils:parse-uri (concatenate 'string
                                          "package://pr2_pick_and_place_scenario/models/"

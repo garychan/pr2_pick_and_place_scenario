@@ -37,7 +37,7 @@
 
 (defun prepare-scenario ()
   (fill-object-list)
-  (spawn-objects))
+  (simple-knowledge::spawn-objects))
 
 (def-top-level-plan pick-and-place-scenario (object-name)
   (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
