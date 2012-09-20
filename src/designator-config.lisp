@@ -28,8 +28,8 @@
 (in-package :location-costmap)
 
 (crs:def-fact-group costmap-metadata ()
-  (crs:<- (costmap-size 5 5))
-  (crs:<- (costmap-origin -2.5 -2.5))
+  (crs:<- (costmap-size 4 4))
+  (crs:<- (costmap-origin -2 -2))
   (crs:<- (costmap-resolution 0.02))
 
   (crs:<- (costmap-padding 0.1))
