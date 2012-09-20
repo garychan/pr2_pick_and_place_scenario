@@ -36,21 +36,20 @@
      ,@body))
 
 (def-top-level-plan pick-and-place-scenario (object-name)
-  ;; NOTE(winkler): Function changed. Now, the scenario takes an object identifier as it's only parameter. Atm, this only works with "mug", since later on, a mug designator is generated. This has nothing to do with the pose of the object, but wuth the handles on the object (this must be defined per-object). To be moved into knowledge base later.
+  ;; NOTE(winkler): Function changed. Now, the scenario takes an object identifier as it's only parameter. Atm, this only works with "mug", since later on, a mug designator is generated. This has nothing to do with the pose of the object, but with the handles on the object (this must be defined per-object). To be moved into knowledge base later.
+  (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
   (with-process-modules
     (let* ((perceived-object (perceive-named-object object-name))
-           (perceived-object-name (desig-prop-value perceived-object 'desig-props:name)))
-      (let ((obj-desig (generate-mug-designator :pose-stamped (desig:designator-pose perceived-object) :name perceived-object-name)))
-        (format t "With name: ~a~%" perceived-object-name)
-        (format t "Perceived object: ~a~%" obj-desig)
-        (achieve `(cram-plan-knowledge:object-in-hand ,obj-desig)))
-      )))
+           (object-to-grab (gazebo-perception-process-module::make-handled-object-designator
+                            :name object-name
+                            :object-type :mug
+                            :object-pose (desig:reference (desig-prop-value perceived-object 'at))
+                            :handles `((,(tf:make-pose (tf:make-3d-vector 0.13 0 0.06) (tf:euler->quaternion :ax (/ pi 2))) 0.01)))))
+        (achieve `(cram-plan-knowledge:object-in-hand ,object-to-grab)))))
 
 (def-plan perceive-named-object (object-name)
-  (format t "Perceiving named object `~a'~%" object-name)
-  (let ((obj (gazebo-perception-pm::make-named-object-designator object-name)))
-    (format t "Named object desig: ~a~%" obj)
-    (cram-plan-library:perceive-object 'cram-plan-library:a obj)))
+  (with-designators ((mug (object `((desig-props:name ,object-name)))))
+    (cram-plan-library:perceive-object 'cram-plan-library:a mug)))
 
 (defun generate-mug-designator (&key (pose-stamped (gazebo-perception-pm::get-model-pose "mug")) name)
   (gazebo-perception-pm::make-handled-object-designator
