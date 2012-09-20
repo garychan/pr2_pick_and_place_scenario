@@ -25,7 +25,7 @@
 ;;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ;;; POSSIBILITY OF SUCH DAMAGE.
 
-(in-package :pr2-pnp)
+(in-package :pr2-pick-and-place-scenario)
 
 (defmacro with-process-modules (&body body)
   `(cpm:with-process-modules-running
