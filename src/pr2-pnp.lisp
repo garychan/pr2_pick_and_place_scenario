@@ -50,9 +50,9 @@
     (let* ((perceived-object (perceive-named-object object-name))
            (object-to-grab (gazebo-perception-process-module::make-handled-object-designator
                             :name object-name
-                            :object-type :mug
+                            :object-type (cdr (car (car (simple-knowledge::object-type-for-name object-name))))
                             :object-pose (desig:reference (desig-prop-value perceived-object 'at))
-                            :handles `((,(tf:make-pose (tf:make-3d-vector 0.13 0 0.06) (tf:euler->quaternion :ax (/ pi 2))) 0.01)))))
+                            :handles (simple-knowledge::object-handles-for-name object-name))))
         (achieve `(cram-plan-knowledge:object-in-hand ,object-to-grab)))))
 
 (def-plan perceive-named-object (object-name)
