@@ -126,4 +126,4 @@
   (force-ll (crs:prolog `(object-type ?name ,type))))
 
 (defun object-type-for-name (name)
-  (force-ll (crs:prolog `(object-type ,name type?))))
+  (force-ll (crs:prolog `(object-type ,name ?type))))
