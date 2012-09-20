@@ -28,6 +28,7 @@
 (in-package :pr2-pick-and-place-scenario)
 
 (defun fill-object-list ()
+  (simple-knowledge::clear-object-list)
   (simple-knowledge::add-object-to-spawn :name "mug"
                        :handles `((,(tf:make-pose
                                      (tf:make-3d-vector 0.13 0 0.06)
