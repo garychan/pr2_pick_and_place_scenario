@@ -25,30 +25,25 @@
 ;;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 ;;; POSSIBILITY OF SUCH DAMAGE.
 
-(defsystem pr2-pick-and-place-scenario
-  :author "Jan Winkler <winkler@cs.uni-bremen.de>"
-  :license "BSD"
-  :description "PR2 Pick and Place Scenario"
-  
-  :depends-on (cram-language
-	       roslisp
-	       pr2-reachability-costmap
-               cram-plan-library
-               cram-plan-knowledge
-	       pr2-manipulation-process-module
-               cram-reasoning
-               location-costmap
-               point-head-process-module
-               pr2-navigation-process-module
-               gazebo-perception-process-module
-	       occupancy-grid-costmap
-	       simple-belief
-	       physics-utils)
-  :components
-  ((:module "src"
-	    :components
-	    ((:file "package")
-             (:file "designator-config" :depends-on ("package"))
-	     (:file "utils" :depends-on ("package"))
-	     (:file "object-database" :depends-on ("package" "utils"))
-	     (:file "pr2-pnp" :depends-on ("package" "designator-config" "object-database" "utils"))))))
+(in-package :pr2-pick-and-place-scenario)
+
+(defun file-string (path)
+  (with-open-file (s path)
+    (let* ((len (file-length s))
+           (data (make-string len)))
+     (multiple-value-bind (string length) (values data (read-sequence data s))
+        (declare (ignore length))
+        string))))
+
+(defun spawn-gazebo-model (name pose urdf-file)
+  (call-service "gazebo/spawn_urdf_model"
+                'gazebo_msgs-srv:spawnmodel
+                :model_name name
+                :model_xml (file-string urdf-file)
+                :initial_pose (tf:pose->msg pose)
+                :reference_frame (tf:frame-id pose)))
+
+(defun model-path (name)
+  (physics-utils:parse-uri (concatenate 'string
+                                         "package://pr2_pick_and_place_scenario/models/"
+                                         name)))

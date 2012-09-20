@@ -35,8 +35,17 @@
         point-head-process-module:point-head-process-module)
      ,@body))
 
+(defun prepare-scenario ()
+  (fill-object-list)
+  (spawn-objects))
+
 (def-top-level-plan pick-and-place-scenario (object-name)
   (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
+  ;; NOTE(winkler): The object to grab is hardcoded at the moment (mug
+  ;; type). The available objects are now stored in the object
+  ;; database list (*object-list*, see object-database.lisp). The
+  ;; appropriate object should be gathered from there, based on it's
+  ;; name given in `object-name`.
   (with-process-modules
     (let* ((perceived-object (perceive-named-object object-name))
            (object-to-grab (gazebo-perception-process-module::make-handled-object-designator
@@ -49,17 +58,6 @@
 (def-plan perceive-named-object (object-name)
   (with-designators ((mug (object `((desig-props:name ,object-name)))))
     (cram-plan-library:perceive-object 'cram-plan-library:a mug)))
-
-(defun generate-mug-designator (&key (pose-stamped (gazebo-perception-pm::get-model-pose "mug")) name)
-  (gazebo-perception-pm::make-handled-object-designator
-   :name name
-   :object-type :mug
-   :object-pose pose-stamped
-   :handles `((,(tf:make-pose (tf:make-3d-vector 0.13 0 0.06) (tf:euler->quaternion :ax (/ pi 2))) 0.01))))
-
-;(defmethod cram-plan-knowledge:holds ((occasion t) &optional time)
-;  (declare (ignore time))
-;  nil)
 
 (defun get-latest-exectrace ()
   (cet:with-episode-knowledge cet:*last-episode-knowledge*
