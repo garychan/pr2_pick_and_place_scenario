@@ -3,21 +3,4 @@
   <param name="table_description" command="$(find xacro)/xacro.py $(find gazebo_worlds)/objects/table.urdf.xacro"/>
   <node name="spawn_table_1" pkg="gazebo" type="spawn_model" args="-urdf -param table_description -x 1.0 -y 0 -z 0 -model table_model_1" respawn="false" output="screen"/>
   <node name="spawn_table_2" pkg="gazebo" type="spawn_model" args="-urdf -param table_description -x -1.5 -y -2.5 -z 0 -Y 20 -model table_model_2" respawn="false" output="screen"/>
-
-  <!-- spawn objects (on tables) -->
-  <!-- cookingpot -->
-  <param name="Cookingpot_2" textfile="$(find pr2_pick_and_place_scenario)/models/Cookingpot_2.urdf"/>
-  <node name="spawn_Cookingpot" pkg="gazebo" type="spawn_model" args="-urdf -param Cookingpot_2 -x -1.0 -y -1.46 -z 0.6 -model cooking_pot" respawn="false" output="screen"/>
-
-  <!-- mug -->
-  <param name="mug" textfile="$(find pr2_pick_and_place_scenario)/models/mug.urdf"/>
-  <node name="spawn_mug" pkg="gazebo" type="spawn_model" args="-urdf -param mug -x -1.5 -y -1.0 -z 0.6 -model mug" respawn="false" output="screen"/>
-
-  <!-- iron -->
-  <param name="iron_2" textfile="$(find pr2_pick_and_place_scenario)/models/iron_2.urdf"/>
-  <node name="spawn_iron" pkg="gazebo" type="spawn_model" args="-urdf -param iron_2 -x 1.8 -y 0.2 -z 1.00 -Y 1.57 -model iron" respawn="false" output="screen"/>
-
-  <!-- Green_Bottle -->
-  <param name="Green_Bottle" textfile="$(find pr2_pick_and_place_scenario)/models/Green_Bottle.urdf"/>
-  <node name="spawn_GreenBottle" pkg="gazebo" type="spawn_model" args="-urdf -param Green_Bottle -x 1.8 -y 0.6 -z 1.00 -Y 1.57 -model green_bottle" respawn="false" output="screen"/>
 </launch>
