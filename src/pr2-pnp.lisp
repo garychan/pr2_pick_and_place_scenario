@@ -41,11 +41,6 @@
 
 (def-top-level-plan pick-and-place-scenario (object-name)
   (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
-  ;; NOTE(winkler): The object to grab is hardcoded at the moment (mug
-  ;; type). The available objects are now stored in the object
-  ;; database list (*object-list*, see object-database.lisp). The
-  ;; appropriate object should be gathered from there, based on it's
-  ;; name given in `object-name`.
   (with-process-modules
     (let* ((perceived-object (perceive-named-object object-name))
            (object-to-grab (gazebo-perception-process-module::make-handled-object-designator
