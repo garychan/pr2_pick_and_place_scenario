@@ -40,14 +40,28 @@
   (simple-knowledge::spawn-objects))
 
 (def-top-level-plan pick-and-place-scenario (object-name)
-  (setf cram-plan-library::*pose-publisher* (roslisp:advertise "/foo" "geometry_msgs/PoseStamped" :latch t))
+  ;; NOTE(winkler): This initializes a pose publisher used for
+  ;; debugging.
+  (setf cram-plan-library::*pose-publisher*
+        (roslisp:advertise "/foo"
+                           "geometry_msgs/PoseStamped"
+                           :latch t))
   (with-process-modules
     (let* ((perceived-object (perceive-named-object object-name))
-           (object-to-grab (gazebo-perception-process-module::make-handled-object-designator
-                            :name object-name
-                            :object-type (cdr (car (car (simple-knowledge::object-type-for-name object-name))))
-                            :object-pose (desig:reference (desig-prop-value perceived-object 'at))
-                            :handles (simple-knowledge::object-handles-for-name object-name))))
+           (object-to-grab
+             (gazebo-perception-process-module::make-handled-object-designator
+              :name object-name
+              :object-type (cdr
+                            (car
+                             (car
+                              (simple-knowledge::object-type-for-name
+                               object-name))))
+              :object-pose (desig:reference
+                            (desig-prop-value
+                             perceived-object
+                             'at))
+              :handles (simple-knowledge::object-handles-for-name
+                        object-name))))
         (achieve `(cram-plan-knowledge:object-in-hand ,object-to-grab)))))
 
 (def-plan perceive-named-object (object-name)
