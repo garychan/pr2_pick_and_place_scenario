@@ -1,6 +1,6 @@
 <launch>
   <!-- spawn tables -->
-  <param name="table_description" command="$(find xacro)/xacro.py $(find gazebo_worlds)/objects/table.urdf.xacro"/>
+  <param name="table_description" textfile="$(find pr2_pick_and_place_scenario)/models/table.urdf"/>
   <node name="spawn_table_1" pkg="gazebo" type="spawn_model" args="-urdf -param table_description -x 1.0 -y 0 -z 0 -model table_model_1" respawn="false" output="screen"/>
   <node name="spawn_table_2" pkg="gazebo" type="spawn_model" args="-urdf -param table_description -x -1.5 -y -2.5 -z 0 -Y 20 -model table_model_2" respawn="false" output="screen"/>
 </launch>
