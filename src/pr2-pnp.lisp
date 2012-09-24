@@ -47,22 +47,8 @@
                            "geometry_msgs/PoseStamped"
                            :latch t))
   (with-process-modules
-    (let* ((perceived-object (perceive-named-object object-name))
-           (object-to-grab
-             (gazebo-perception-process-module::make-handled-object-designator
-              :name object-name
-              :object-type (cdr
-                            (car
-                             (car
-                              (simple-knowledge::object-type-for-name
-                               object-name))))
-              :object-pose (desig:reference
-                            (desig-prop-value
-                             perceived-object
-                             'at))
-              :handles (simple-knowledge::object-handles-for-name
-                        object-name))))
-        (achieve `(cram-plan-knowledge:object-in-hand ,object-to-grab)))))
+    (let* ((perceived-object (perceive-named-object object-name)))
+      (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object)))))
 
 (def-plan perceive-named-object (object-name)
   (with-designators ((mug (object `((desig-props:name ,object-name)))))
