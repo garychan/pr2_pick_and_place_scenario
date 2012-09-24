@@ -34,7 +34,7 @@
    :type :mug
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.13 0 0.06)
-                 (tf:euler->quaternion :ax (/ pi 2)))
+                 (tf:euler->quaternion :ax (/ pi 4)))
                0.01))
    :pose (tf:make-pose-stamped
           "map"
