@@ -47,8 +47,22 @@
                            "geometry_msgs/PoseStamped"
                            :latch t))
   (with-process-modules
-    (let* ((perceived-object (perceive-named-object object-name)))
-      (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object)))))
+    ;; First, lift the spine. This way, we can access more parts of
+    ;; the environment.
+    (let ((spine-lift-trajectory (roslisp:make-msg
+                                  "trajectory_msgs/JointTrajectory"
+                                  (stamp header)
+                                  (roslisp:ros-time)
+                                  joint_names #("torso_lift_joint")
+                                  points (vector (roslisp:make-message
+                                                  "trajectory_msgs/JointTrajectoryPoint"
+                                                  positions #(0.2)
+                                                  velocities #(0)
+                                                  accelerations #(0)
+                                                  time_from_start 10.0)))))
+      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
+      (let* ((perceived-object (perceive-named-object object-name)))
+        (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object))))))
 
 (def-plan perceive-named-object (object-name)
   (with-designators ((mug (object `((desig-props:name ,object-name)))))
