@@ -60,10 +60,10 @@
                                                   velocities #(0)
                                                   accelerations #(0)
                                                   time_from_start 10.0)))))
-      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
+      ;(pr2-manip-pm::execute-torso-command spine-lift-trajectory)
       (let* ((perceived-object (perceive-named-object object-name)))
         (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object))))))
 
 (def-plan perceive-named-object (object-name)
-  (with-designators ((mug (object `((desig-props:name ,object-name)))))
-    (cram-plan-library:perceive-object 'cram-plan-library:a mug)))
+  (with-designators ((obj-desig (object `((desig-props:name ,object-name)))))
+    (cram-plan-library:perceive-object 'cram-plan-library:a obj-desig)))
