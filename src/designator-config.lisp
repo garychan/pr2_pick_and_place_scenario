@@ -28,14 +28,14 @@
 (in-package :location-costmap)
 
 (crs:def-fact-group costmap-metadata ()
-  (crs:<- (costmap-size 5 5))
-  (crs:<- (costmap-origin -2.5 -2.5))
+  (crs:<- (costmap-size 4 4))
+  (crs:<- (costmap-origin -2 -2))
   (crs:<- (costmap-resolution 0.05))
 
-  (crs:<- (costmap-padding 0.0))
-  (crs:<- (costmap-manipulation-padding 0.0))
-  (crs:<- (costmap-in-reach-distance 0.1))
-  (crs:<- (costmap-reach-minimal-distance 0.05)))
+  (crs:<- (costmap-padding 0.1))
+  (crs:<- (costmap-manipulation-padding 0.1))
+  (crs:<- (costmap-in-reach-distance 0.8))
+  (crs:<- (costmap-reach-minimal-distance 0.1)))
 
 (crs:def-fact-group process-modules (matching-process-module available-process-module)
 
