@@ -1,0 +1,141 @@
+;;; Copyright (c) 2012, Jan Winkler <winkler@cs.uni-bremen.de>
+;;; All rights reserved.
+;;; 
+;;; Redistribution and use in source and binary forms, with or without
+;;; modification, are permitted provided that the following conditions are met:
+;;; 
+;;;     * Redistributions of source code must retain the above copyright
+;;;       notice, this list of conditions and the following disclaimer.
+;;;     * Redistributions in binary form must reproduce the above copyright
+;;;       notice, this list of conditions and the following disclaimer in the
+;;;       documentation and/or other materials provided with the distribution.
+;;;     * Neither the name of Willow Garage, Inc. nor the names of its
+;;;       contributors may be used to endorse or promote products derived from
+;;;       this software without specific prior written permission.
+;;; 
+;;; THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+;;; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+;;; IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+;;; ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+;;; LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+;;; CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+;;; SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+;;; INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+;;; CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+;;; ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+;;; POSSIBILITY OF SUCH DAMAGE.
+;;;
+;;;
+;;; Changelog
+;;; ---------
+;;;
+;;;   Jan Winkler <winkler@cs.uni-bremen.de>, Tue Sep 25 2012
+;;;    - Added initial sections
+;;;    - Added components used and their short descriptions
+;;;    - Added BSD header
+;;;    - Added information about used objects
+
+
+PR2 Pick And Place Scenario
+---------------------------
+
+ - What is it?
+
+   The PR2 pnp-scenario is about a robot (namely the PR2) putting all
+   kinds of things (see below) from one place to another place. The
+   setup consists of two tables with different objects on them and the
+   robot in their middle.
+
+
+ - Why are we doing it?
+
+   The overall purpose of the scenario is to make the very common pick
+   and place task as generalized as possible. Several interesting
+   characteristics are coming up in this scenario:
+
+    1. Grasping of objects.  Since this is also a common topic, it is
+       included here. In order to pick and place something, it has to
+       be grasped with the robot's gripper somehow. All objects used
+       in this scenario have at least one handle (or `handleish` forms
+       which we exploit). The important bit here is to find a simple
+       and yet comprehensive description of these handles (which
+       should be as short as possible). We are achieving this using
+       the `handle` property in object designators, which include the
+       relative gripper pose on the object as well as its radius (to
+       give the gripper a clue about just how much it should close
+       around the handle).
+
+    2. Inferring information.  To pick stuff up, the robot first has
+       to find it. Take, for example a mug, which the robot should
+       place in the table. The first task is to actually find
+       it. Besides just standing around, it could be in some kind of
+       shelve or cupboard. Where to look is the information to be
+       inferred in some sort of knowledge backend. For this, we want
+       to use KnowRob in the future. As KnowRob is rather advanced and
+       difficult to set up on itself, we reside on a simple knowledge
+       backend ("simple_knowledge"-package). This simpler backend
+       includes the objects we use in the scenario (as well as their
+       type).
+
+    3. Object recognition.  In order to find, see and recognize an
+       object, it has to be identified. When implemented on the real
+       robot (opposing to the gazebo simulation which is the current
+       state of things), the scenario includes recognizing objects by
+       the description found in the knowledge backend. This is not yet
+       implemented as we are currently only simulating the whole
+       scenario.
+
+ - What components are we using?
+
+   In its current state, the scenario uses several components to help
+   it do its thing. All single packages or process modules can be
+   replaced at will (if there is a valid replacement available). Step
+   by step, we will remove a simple version and add a more advanced
+   component. The belief-state module, the knowledge base and the
+   perception process module will be replaced by their respective
+   real-world equivalents. The components used are:
+
+    - The pr2_pick_and_place_scenario package.  This package includes
+      the actual plan and wrapper functions that initialize process
+      modules and the object database. Everything else is steered from
+      here.
+
+    - The simple_belief package.  In this package, as the name might
+      tell, the current belief state system is held. When the robot
+      grasps something, it is "attached" to the gripper. This change
+      of state is reflected in this package and being kept track of.
+
+    - The simple_knowledge package.  Since we are not dealing with the
+      whole KnowRob package with inferrence and all at the moment in
+      context of this scenario, this very simple knowledge base holds
+      all available information about the objects in the
+      scenario-world. It is interfaced using prolog, which is also
+      used by KnowRob. Therefore, the transition should be easier when
+      the time to change this component has come.
+
+    - The gazebo_perception_process_module package.  As gazebo's
+      simulation environment includes a full fledged physical sim
+      engine, it is computationally expensive. Plus the fact that - at
+      the moment - we don't deal with mesh recognition in
+      simulation. Due to these reasons, we created the herein
+      described process module which 'fakes' the recognition of the
+      robot. It basically reads information directly from the gazebo
+      state and emulates a perception component.
+
+   The latter three components are included in the cram_gazebo stack.
+
+ - What kinds of objects are we using?
+
+   For starters, we chose four different kinds of objects to work
+   with. The simplest object is a coffee-mug, which has one
+   handle. For simple one-gripper'ed manipulation, this is an easy to
+   manage everyday-object. We also included a pot, which has two
+   handles. This way, we can utilize both grippers at once. In order
+   to try grasps from the above direction, we included an iron that
+   has a top handle. Last but not least, there is a bottle that has no
+   actual handle. Its distinct form makes it possible to grasp it from
+   every side around its rotationally symmetric body. Our current
+   approach is to manually define eight handles, rotated by 45 degree
+   each. For each of these, the robot will grasp around the body of
+   the bottle. The future alternative to this is to find a nice
+   description of rotationally symmetric handles.
