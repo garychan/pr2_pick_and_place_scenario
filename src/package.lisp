@@ -30,4 +30,4 @@
        #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators
        #:simple-belief)
  (:desig-props #:name)
- (:desig-properties #:grasp #:to #:name #:handle))
+ (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj #:lift #:at #:execute #:action #:type))
