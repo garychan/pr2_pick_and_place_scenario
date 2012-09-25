@@ -40,76 +40,76 @@
           "map"
           0.0
           (tf:make-3d-vector -1.5 -1.0 0.6)
-          (tf:make-identity-rotation))
-   :file (model-path "mug.urdf"))
-  (simple-knowledge::add-object-to-spawn
-   :name "cooking_pot"
-   :type :pot
-   :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.175 0.0 0.12)
-                 (tf:make-identity-rotation))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.175 0.0 0.12)
-                 (tf:euler->quaternion :az pi))
-               0.01))
-   :pose (tf:make-pose-stamped
-          "map"
-          0.0
-          (tf:make-3d-vector -1.0 -1.46 0.6)
-          (tf:make-identity-rotation))
-   :file (model-path "Cookingpot_2.urdf"))
-  (simple-knowledge::add-object-to-spawn
-   :name "iron"
-   :type :iron
-   :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.06 0.14)
-                 (tf:euler->quaternion :ay (/ pi -2) :az pi))
-               0.01))
-   :pose (tf:make-pose-stamped
-          "map"
-          0.0
-          (tf:make-3d-vector 1.8 0.2 1.0)
-          (tf:euler->quaternion :az 1.57))
-   :file (model-path "iron_2.urdf"))
-  (simple-knowledge::add-object-to-spawn
-   :name "green_bottle"
-   :type :bottle
-   :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 4)))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 2)))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi 0.75)))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az pi))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi -0.75)))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -2)))
-               0.01)
-              (,(tf:make-pose
-                 (tf:make-3d-vector 0.0 0.0 0.075)
-                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -4)))
-               0.01))
-   :pose (tf:make-pose-stamped
-          "map"
-          0.0
-          (tf:make-3d-vector 1.8 0.6 1.0)
-          (tf:euler->quaternion :az 1.57))
-   :file (model-path "Green_Bottle.urdf")))
+          (tf:euler->quaternion :az (/ pi 4)))
+   :file (model-path "mug.urdf")))
+  ;; (simple-knowledge::add-object-to-spawn
+  ;;  :name "cooking_pot"
+  ;;  :type :pot
+  ;;  :handles `((,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.175 0.0 0.12)
+  ;;                (tf:make-identity-rotation))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.175 0.0 0.12)
+  ;;                (tf:euler->quaternion :az pi))
+  ;;              0.01))
+  ;;  :pose (tf:make-pose-stamped
+  ;;         "map"
+  ;;         0.0
+  ;;         (tf:make-3d-vector -1.0 -1.46 0.6)
+  ;;         (tf:make-identity-rotation))
+  ;;  :file (model-path "Cookingpot_2.urdf"))
+  ;; (simple-knowledge::add-object-to-spawn
+  ;;  :name "iron"
+  ;;  :type :iron
+  ;;  :handles `((,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.06 0.14)
+  ;;                (tf:euler->quaternion :ay (/ pi -2) :az pi))
+  ;;              0.01))
+  ;;  :pose (tf:make-pose-stamped
+  ;;         "map"
+  ;;         0.0
+  ;;         (tf:make-3d-vector 1.8 0.2 1.0)
+  ;;         (tf:euler->quaternion :az 1.57))
+  ;;  :file (model-path "iron_2.urdf"))
+  ;; (simple-knowledge::add-object-to-spawn
+  ;;  :name "green_bottle"
+  ;;  :type :bottle
+  ;;  :handles `((,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 4)))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 2)))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi 0.75)))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az pi))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi -0.75)))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -2)))
+  ;;              0.01)
+  ;;             (,(tf:make-pose
+  ;;                (tf:make-3d-vector 0.0 0.0 0.075)
+  ;;                (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -4)))
+  ;;              0.01))
+  ;;  :pose (tf:make-pose-stamped
+  ;;         "map"
+  ;;         0.0
+  ;;         (tf:make-3d-vector 1.8 0.6 1.0)
+  ;;         (tf:euler->quaternion :az 1.57))
+  ;;  :file (model-path "Green_Bottle.urdf")))
