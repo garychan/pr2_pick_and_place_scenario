@@ -60,7 +60,7 @@
                                                   velocities #(0)
                                                   accelerations #(0)
                                                   time_from_start 10.0)))))
-      ;(pr2-manip-pm::execute-torso-command spine-lift-trajectory)
+      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
       (let* ((perceived-object (perceive-named-object object-name)))
         (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object))))))
 
