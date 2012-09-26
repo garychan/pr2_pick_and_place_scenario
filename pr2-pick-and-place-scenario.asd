@@ -32,6 +32,8 @@
   
   :depends-on (cram-language
 	       roslisp
+	       cram-pr2-knowledge
+	       pr2-manipulation-knowledge
 	       pr2-reachability-costmap
                cram-plan-library
                cram-plan-knowledge
