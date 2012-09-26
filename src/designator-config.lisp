@@ -35,7 +35,7 @@
   (crs:<- (costmap-padding 0.35))
   (crs:<- (costmap-manipulation-padding 0.35))
   (crs:<- (costmap-in-reach-distance 1.0))
-  (crs:<- (costmap-reach-minimal-distance 0.1)))
+  (crs:<- (costmap-reach-minimal-distance 0.2)))
 
 (crs:def-fact-group process-modules (matching-process-module available-process-module)
 
