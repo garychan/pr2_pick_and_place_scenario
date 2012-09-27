@@ -39,7 +39,7 @@
   (fill-object-list)
   (simple-knowledge::spawn-objects))
 
-(def-top-level-plan pick-and-place-scenario (object-name)
+(def-top-level-cram-function pick-and-place-scenario (object-name)
   ;; NOTE(winkler): This initializes a pose publisher used for
   ;; debugging.
   (setf cram-plan-library::*pose-publisher*
@@ -64,6 +64,6 @@
       (let* ((perceived-object (perceive-named-object object-name)))
         (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object))))))
 
-(def-plan perceive-named-object (object-name)
+(def-cram-function perceive-named-object (object-name)
   (with-designators ((obj-desig (object `((desig-props:name ,object-name)))))
     (cram-plan-library:perceive-object 'cram-plan-library:a obj-desig)))
