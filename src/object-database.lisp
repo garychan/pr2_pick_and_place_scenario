@@ -39,10 +39,51 @@
    :pose (tf:make-pose-stamped
           "map"
           0.0
-;          (tf:make-3d-vector -1.5 -1.0 0.6)
           (tf:make-3d-vector -1.0 -1.2 0.6)
           (tf:euler->quaternion :az (/ pi 4)))
-   :file (model-path "mug.urdf")))
+   :file (model-path "mug.urdf"))
+  (simple-knowledge::add-object-to-spawn
+   :name "green_bottle"
+   :type :bottle
+   :handles `((,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 4)))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 2)))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi 0.75)))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az pi))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi -0.75)))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -2)))
+               0.04)
+              (,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.0 0.075)
+                 (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -4)))
+               0.04))
+   :pose (tf:make-pose-stamped
+          "map"
+          0.0
+          (tf:make-3d-vector 1.55 0.0 1.0)
+          (tf:euler->quaternion :az 1.57))
+   :file (model-path "Green_Bottle.urdf")))
+
   ;; (simple-knowledge::add-object-to-spawn
   ;;  :name "cooking_pot"
   ;;  :type :pot
