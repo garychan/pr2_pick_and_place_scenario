@@ -8,19 +8,30 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/pr2_pick_and_place_scenario</url>
-
+  
+  <!-- dependencies as in asdf-file -->
+  <depend package="cram_language" />
+  <depend package="roslisp" />
+  <depend package="cram_pr2_knowledge" />
+  <depend package="pr2_manipulation_knowledge" />
   <depend package="pr2_reachability_costmap" />
-  <depend package="gazebo_perception_process_module" />
+  <depend package="cram_plan_library" />
+  <depend package="cram_plan_knowledge" />
   <depend package="pr2_manipulation_process_module" />
-  <depend package="pr2_navigation_process_module" />
+  <depend package="cram_reasoning" />
+  <depend package="location_costmap" />
   <depend package="point_head_process_module" />
-  <depend package="gazebo" />
+  <depend package="pr2_navigation_process_module" />
+  <depend package="gazebo_perception_process_module" />
   <depend package="occupancy_grid_costmap" />
-  <depend package="octomap_server" />
   <depend package="simple_belief" />
   <depend package="simple_knowledge" />
   <depend package="cram_physics_utils" />
   <depend package="cram_gazebo_utilities" />
+  <!-- extra dependencies for stuff that is in launch-files -->
+  <depend package="gazebo" />
+  <depend package="octomap_server" />
+  <depend package="nav_pcontroller" />
 
   <export>
     <gazebo gazebo_media_path="${prefix}/models"/>
