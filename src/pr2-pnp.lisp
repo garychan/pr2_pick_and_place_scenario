@@ -54,21 +54,25 @@
                                   (stamp header)
                                   (roslisp:ros-time)
                                   joint_names #("torso_lift_joint")
-                                  points (vector (roslisp:make-message
-                                                  "trajectory_msgs/JointTrajectoryPoint"
-                                                  positions #(0.2)
-                                                  velocities #(0)
-                                                  accelerations #(0)
-                                                  time_from_start 10.0)))))
+                                  points (vector
+                                          (roslisp:make-message
+                                           "trajectory_msgs/JointTrajectoryPoint"
+                                           positions #(0.2)
+                                           velocities #(0)
+                                           accelerations #(0)
+                                           time_from_start 10.0)))))
 ;      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
       (let* ((perceived-object (perceive-named-object object-name)))
-        (with-designators ((put-down-loc (location `((at ,(tf:make-pose-stamped
-                                                           "map"
-                                                           0.0
-                                                           (tf:make-3d-vector 0.0 0.0 0.0)
-                                                           (tf:make-identity-rotation)))))))
+        (with-designators ((put-down-loc (location
+                                          `((at
+                                             ,(tf:make-pose-stamped
+                                               "map"
+                                               0.0
+                                               (tf:make-3d-vector 0.0 0.0 0.0)
+                                               (tf:make-identity-rotation)))))))
+          (declare (ignore put-down-loc))
           (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object)))))))
-;          (achieve `(cram-plan-knowledge:object-placed-at ,perceived-object ,put-down-loc)))))))
+          ;(achieve `(cram-plan-knowledge:object-placed-at ,perceived-object ,put-down-loc)))))))
 
 (def-cram-function perceive-named-object (object-name)
   (with-designators ((obj-desig (object `((desig-props:name ,object-name)))))
