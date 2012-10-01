@@ -48,35 +48,35 @@
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az 0.0))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 4)))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi 2)))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi 0.75)))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az pi))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (* pi -0.75)))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -2)))
-               0.04)
+               0.08)
               (,(tf:make-pose
                  (tf:make-3d-vector 0.0 0.0 0.075)
                  (tf:euler->quaternion :ax (/ pi 2) :ay 0.0 :az (/ pi -4)))
-               0.04))
+               0.08))
    :pose (tf:make-pose-stamped
           "map"
           0.0
