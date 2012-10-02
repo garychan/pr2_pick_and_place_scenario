@@ -68,8 +68,7 @@
                                            accelerations #(0)
                                            time_from_start 10.0)))))
       (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
-      (let* ((side :right)
-             (perceived-object (cram-plan-library:perceive-object
+      (let* ((perceived-object (cram-plan-library:perceive-object
                                 'cram-plan-library:a
                                 object-desig))
              (former-obj-loc (desig-prop-value perceived-object 'at))
