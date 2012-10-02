@@ -27,13 +27,3 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
-(def-fact-group gazebo-object-types ()
-  (<- (object-type ?name mug)
-    (equal ?name "mug"))
-  (<- (object-type ?name pot)
-    (equal ?name "cooking_pot"))
-  (<- (object-type ?name iron)
-    (equal ?name "iron"))
-  (<- (object-type ?name bottle)
-    (equal ?name "green_bottle")))
-
