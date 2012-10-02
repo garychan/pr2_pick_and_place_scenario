@@ -31,4 +31,5 @@
        #:simple-belief)
  (:import-from #:cram-reasoning #:<- #:def-fact-group)
  (:desig-props #:name)
- (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj #:lift #:at #:execute #:action #:type))
+ (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj
+ #:lift #:at #:execute #:action #:type))
