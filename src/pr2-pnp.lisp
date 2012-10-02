@@ -68,19 +68,14 @@
                                            accelerations #(0)
                                            time_from_start 10.0)))))
       (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
-      (with-designators ((put-down-loc (location
-                                        `((at
-                                           ,(tf:make-pose-stamped
-                                             "map"
-                                             0.0
-                                             (tf:make-3d-vector 0.0 0.0 0.0)
-                                             (tf:make-identity-rotation)))))))
-        (let* ((perceived-object (cram-plan-library:perceive-object
-                                  'cram-plan-library:a
-                                  object-desig))
-               (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
-                                       ,perceived-object)))
-               (obj-placed (achieve `(cram-plan-knowledge:object-placed-at
-                                      ,obj-in-hand
-                                      ,put-down-loc))))
+      (let* ((side :right)
+             (perceived-object (cram-plan-library:perceive-object
+                                'cram-plan-library:a
+                                object-desig))
+             (former-obj-loc (desig-prop-value perceived-object 'at))
+             (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
+                                     ,perceived-object))))
+        (let ((obj-placed (achieve `(cram-plan-knowledge:object-placed-at
+                                     ,obj-in-hand
+                                     ,former-obj-loc))))
           (format t "Designator of placed object: ~a~%" obj-placed))))))
