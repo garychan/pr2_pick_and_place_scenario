@@ -27,3 +27,4 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
+(def-fact-group pr2-pick-and-place-designators (action-desig))
