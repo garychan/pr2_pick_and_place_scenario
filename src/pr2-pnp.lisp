@@ -39,7 +39,13 @@
   (fill-object-list)
   (simple-knowledge::spawn-objects))
 
-(def-top-level-cram-function pick-and-place-scenario (object-name)
+(defun start-scenario (object-name)
+  (let ((object-desig (desig:make-designator
+                       'desig:object
+                       `((name ,object-name)))))
+    (pick-and-place-scenario object-desig)))
+
+(def-top-level-cram-function pick-and-place-scenario (object-desig)
   ;; NOTE(winkler): This initializes a pose publisher used for
   ;; debugging.
   (setf cram-plan-library::*pose-publisher*
@@ -61,19 +67,20 @@
                                            velocities #(0)
                                            accelerations #(0)
                                            time_from_start 10.0)))))
-;      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
-      (let* ((perceived-object (perceive-named-object object-name)))
-        (with-designators ((put-down-loc (location
-                                          `((at
-                                             ,(tf:make-pose-stamped
-                                               "map"
-                                               0.0
-                                               (tf:make-3d-vector 0.0 0.0 0.0)
-                                               (tf:make-identity-rotation)))))))
-          (declare (ignore put-down-loc))
-          (achieve `(cram-plan-knowledge:object-in-hand ,perceived-object)))))))
-          ;(achieve `(cram-plan-knowledge:object-placed-at ,perceived-object ,put-down-loc)))))))
-
-(def-cram-function perceive-named-object (object-name)
-  (with-designators ((obj-desig (object `((desig-props:name ,object-name)))))
-    (cram-plan-library:perceive-object 'cram-plan-library:a obj-desig)))
+      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
+      (with-designators ((put-down-loc (location
+                                        `((at
+                                           ,(tf:make-pose-stamped
+                                             "map"
+                                             0.0
+                                             (tf:make-3d-vector 0.0 0.0 0.0)
+                                             (tf:make-identity-rotation)))))))
+        (let* ((perceived-object (cram-plan-library:perceive-object
+                                  'cram-plan-library:a
+                                  object-desig))
+               (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
+                                       ,perceived-object)))
+               (obj-placed (achieve `(cram-plan-knowledge:object-placed-at
+                                      ,obj-in-hand
+                                      ,put-down-loc))))
+          (format t "Designator of placed object: ~a~%" obj-placed))))))

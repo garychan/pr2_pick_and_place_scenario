@@ -27,12 +27,4 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
-(crs:def-fact-group gazebo-object-types ()
-  (crs:<- (object-type ?name mug)
-    (equal ?name "mug"))
-  (crs:<- (object-type ?name pot)
-    (equal ?name "cooking_pot"))
-  (crs:<- (object-type ?name iron)
-    (equal ?name "iron"))
-  (crs:<- (object-type ?name bottle)
-    (equal ?name "green_bottle")))
+(def-fact-group pr2-pick-and-place-designators (action-desig))
