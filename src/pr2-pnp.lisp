@@ -74,7 +74,8 @@
              (former-obj-loc (desig-prop-value perceived-object 'at))
              (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
                                      ,perceived-object))))
-        (let ((obj-placed (achieve `(cram-plan-knowledge:object-placed-at
-                                     ,obj-in-hand
-                                     ,former-obj-loc))))
-          (format t "Designator of placed object: ~a~%" obj-placed))))))
+        (declare (ignore obj-in-hand former-obj-loc))))))
+        ;; (let ((obj-placed (achieve `(cram-plan-knowledge:object-placed-at
+        ;;                              ,obj-in-hand
+        ;;                              ,former-obj-loc))))
+        ;(format t "Designator of placed object: ~a~%" obj-placed)))))
