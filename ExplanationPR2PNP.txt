@@ -29,11 +29,15 @@
 ;;; Changelog
 ;;; ---------
 ;;;
+;;;   Jan Winkler <winkler@cs.uni-bremen.de>, Fri Oct 12 2012
+;;;    - Added information about currently not-working parts
+;;;
 ;;;   Jan Winkler <winkler@cs.uni-bremen.de>, Tue Sep 25 2012
 ;;;    - Added initial sections
 ;;;    - Added components used and their short descriptions
 ;;;    - Added BSD header
 ;;;    - Added information about used objects
+
 
 
 PR2 Pick And Place Scenario
@@ -139,3 +143,29 @@ PR2 Pick And Place Scenario
    each. For each of these, the robot will grasp around the body of
    the bottle. The future alternative to this is to find a nice
    description of rotationally symmetric handles.
+
+ - Current work topics and problems that arose
+
+   Topics
+   ------
+
+    - Add semantic collision map.  At the moment, the collision
+      environment is prepared and all IKs are generated using the
+      constraint aware IK solver service
+      `get_constraint_aware_ik'. All the is missing is the registering
+      of collision objects (-> environment_server).
+
+   Problems
+   --------
+
+    - Somehow, the carry pose cannot be reached. It always fails.
+      Identified the problem: The `lift' pattern in designator.lisp
+      holds a fixed value for `side' (:right). This means that it will
+      fail every time the left side is used to grasp the
+      object. Change it so dynamic side evaluation.
+
+    - Sometimes, the `side' parameter coming from the `best-grasp'
+      prolog pattern is NIL. This breaks the whole grasping process as
+      already the pregrasp pose cannot be reached anymore. It is
+      possible that the euclidean distance function is at fault here,
+      but that's not for sure (it's just the newest addition atm).
