@@ -66,15 +66,17 @@
                                            positions #(0.2)
                                            velocities #(0)
                                            accelerations #(0)
-                                           time_from_start 10.0)))))
+                                           time_from_start 5.0)))))
+      (format t "Moving up spine~%")
       (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
+      (format t "Moving spine complete~%")
       (let* ((perceived-object (cram-plan-library:perceive-object
                                 'cram-plan-library:a
                                 object-desig))
              (former-obj-loc (desig-prop-value perceived-object 'at))
              (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
                                      ,perceived-object))))
-        (declare (ignore obj-in-hand former-obj-loc))))))
+        obj-in-hand))))
         ;; (let ((obj-placed (achieve `(cram-plan-knowledge:object-placed-at
         ;;                              ,obj-in-hand
         ;;                              ,former-obj-loc))))
