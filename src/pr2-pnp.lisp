@@ -74,8 +74,10 @@
                                 'cram-plan-library:a
                                 object-desig))
              (former-obj-loc (desig-prop-value perceived-object 'at))
-             (obj-in-hand (achieve `(cram-plan-knowledge:object-in-hand
-                                     ,perceived-object))))
+             (obj-in-hand (cram-designators:current-desig
+                           (achieve `(cram-plan-knowledge:object-in-hand
+                                      ,perceived-object)))))
+        (declare (ignore former-obj-loc))
         obj-in-hand))))
         ;; (let ((obj-placed (achieve `(cram-plan-knowledge:object-placed-at
         ;;                              ,obj-in-hand
