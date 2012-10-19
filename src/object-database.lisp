@@ -36,6 +36,10 @@
                  (tf:make-3d-vector 0.13 0 0.07)
                  (tf:euler->quaternion :ax (/ pi 2)))
                0.01))
+   :collision-parts `((,(tf:make-identity-pose)
+		       :cylinder ;; type
+		       3         ;; radius
+		       10))      ;; length
    :pose (tf:make-pose-stamped
           "map"
           0.0
