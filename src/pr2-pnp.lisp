@@ -32,6 +32,8 @@
   (simple-knowledge::spawn-objects))
 
 (defun start-scenario (object-name)
+  ;; Prepare the scenario
+  (prepare-scenario)
   ;; Clear the attached objects
   (setf simple-belief::*attached-objects* nil)
   ;; Create an object designator from the object name and call the
