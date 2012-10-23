@@ -35,3 +35,28 @@
 (defun get-latest-exectrace ()
   (cet:with-episode-knowledge cet:*last-episode-knowledge*
     (cram-utilities:force-ll (crs:prolog `(and (task ?task))))))
+
+(defmacro with-process-modules (&body body)
+  `(cpm:with-process-modules-running
+       (pr2-manip-pm:pr2-manipulation-process-module
+        pr2-navigation-process-module:pr2-navigation-process-module
+        gazebo-perception-pm:gazebo-perception-process-module
+        point-head-process-module:point-head-process-module)
+     ,@body))
+
+(defun get-object-instance (name)
+  (advertise-publishers)
+  (top-level
+    (with-process-modules
+      (cram-plan-library:perceive-object
+       'cram-plan-library:a
+       (cram-designators:make-designator 'object
+                                         `((name ,name)))))))
+
+(defun advertise-publishers ()
+  ;; NOTE(winkler): This initializes a pose publisher used for
+  ;; debugging.
+  (setf cram-plan-library::*pose-publisher*
+        (roslisp:advertise "/foo"
+                           "geometry_msgs/PoseStamped"
+                           :latch t)))

@@ -27,14 +27,6 @@
 
 (in-package :pr2-pick-and-place-scenario)
 
-(defmacro with-process-modules (&body body)
-  `(cpm:with-process-modules-running
-       (pr2-manip-pm:pr2-manipulation-process-module
-        pr2-navigation-process-module:pr2-navigation-process-module
-        gazebo-perception-pm:gazebo-perception-process-module
-        point-head-process-module:point-head-process-module)
-     ,@body))
-
 (defun prepare-scenario ()
   (fill-object-list)
   (simple-knowledge::spawn-objects))
@@ -46,12 +38,7 @@
     (pick-and-place-scenario object-desig)))
 
 (def-top-level-cram-function pick-and-place-scenario (object-desig)
-  ;; NOTE(winkler): This initializes a pose publisher used for
-  ;; debugging.
-  (setf cram-plan-library::*pose-publisher*
-        (roslisp:advertise "/foo"
-                           "geometry_msgs/PoseStamped"
-                           :latch t))
+  (advertise-publishers)
   (with-process-modules
     ;; First, lift the spine. This way, we can access more parts of
     ;; the environment.
