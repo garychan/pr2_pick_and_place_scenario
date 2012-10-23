@@ -32,6 +32,10 @@
   (simple-knowledge::spawn-objects))
 
 (defun start-scenario (object-name)
+  ;; Clear the attached objects
+  (setf simple-belief::*attached-objects* nil)
+  ;; Create an object designator from the object name and call the
+  ;; actual scenario plan
   (let ((object-desig (desig:make-designator
                        'desig:object
                        `((name ,object-name)))))
