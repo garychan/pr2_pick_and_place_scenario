@@ -60,9 +60,9 @@
                                            velocities #(0)
                                            accelerations #(0)
                                            time_from_start 5.0)))))
-      (format t "Moving up spine~%")
+      (roslisp:ros-info (pick-and-place-scenario) "Moving up spine")
       (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
-      (format t "Moving spine complete~%")
+      (roslisp:ros-info (pick-and-place-scenario) "Moving spine complete")
       (let* ((perceived-object (cram-plan-library:perceive-object
                                 'cram-plan-library:a
                                 object-desig))
