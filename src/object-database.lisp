@@ -48,8 +48,7 @@
           (tf:make-3d-vector -1.0 -1.2 0.6)
           (tf:euler->quaternion :az (/ pi 4)))
    :file (model-path "mug.urdf")
-   :min-handles 1
-   :height 0.12))
+   :min-handles 1))
   ;; (simple-knowledge::add-object-to-spawn
   ;;  :name "cooking_pot"
   ;;  :type :pot
