@@ -26,11 +26,11 @@
 ;;; POSSIBILITY OF SUCH DAMAGE.
 
 (desig-props:def-desig-package pr2-pick-and-place-scenario
- (:use #:location-costmap #:roslisp #:cram-utilities #:cpl
-       #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators
-       #:simple-belief)
- (:import-from #:cram-reasoning #:<- #:def-fact-group)
- (:desig-props #:name)
- (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj
-                    #:lift #:at #:execute #:action #:type #:cylinder
-                    #:shape #:radius #:collision-part #:pose #:min-handles))
+  (:use #:location-costmap #:roslisp #:cram-utilities #:cpl
+        #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators
+        #:simple-belief)
+  (:import-from #:cram-reasoning #:<- #:def-fact-group)
+  (:desig-props #:name)
+  (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj
+                     #:lift #:at #:execute #:action #:type #:cylinder
+                     #:shape #:radius #:collision-part #:pose #:min-handles))
