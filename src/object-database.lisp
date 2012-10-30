@@ -33,7 +33,7 @@
    :name "mug"
    :type :mug
    :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.13 0 0.07)
+                 (tf:make-3d-vector 0.135 0 0.07)
                  (tf:euler->quaternion :ax (/ pi 2)))
                0.01))
    :collision-parts `((,(tf:make-pose
