@@ -31,6 +31,14 @@
   (fill-object-list)
   (simple-knowledge::spawn-objects))
 
+(defun reset ()
+  (top-level
+    (par
+      (pr2-manip-pm::open-gripper :left :position 0.04)
+      (pr2-manip-pm::open-gripper :right :position 0.04)))
+  (simple-knowledge::reposition-objects)
+  (setf simple-belief::*attached-objects* nil))
+
 (defun start-scenario (object-name)
   ;; Prepare the scenario
   (prepare-scenario)
