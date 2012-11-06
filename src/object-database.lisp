@@ -30,7 +30,7 @@
 (defun fill-object-list ()
   (simple-knowledge::clear-object-list)
   (simple-knowledge::add-object-to-spawn
-   :name "mug"
+   :name "mug1"
    :type :mug
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.135 0 0.07)
