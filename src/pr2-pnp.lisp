@@ -39,16 +39,31 @@
   (simple-knowledge::reposition-objects)
   (setf simple-belief::*attached-objects* nil))
 
-(defun start-scenario (object-name)
+(defgeneric start-scenario (object-detail)
+  (:documentation "Starts the PR2 pick and place scenario with either
+  an object name or an object type symbol, defining what is to be
+  picked up."))
+
+(defmethod start-scenario :before (object-detail)
   ;; Prepare the scenario
   (prepare-scenario)
   ;; Clear the attached objects
-  (setf simple-belief::*attached-objects* nil)
+  (setf simple-belief::*attached-objects* nil))
+
+(defmethod start-scenario ((object-name string))
   ;; Create an object designator from the object name and call the
   ;; actual scenario plan
   (let ((object-desig (desig:make-designator
                        'desig:object
                        `((name ,object-name)))))
+    (pick-and-place-scenario object-desig)))
+
+(defmethod start-scenario (object-type)
+  ;; Create an object designator from the object type and call the
+  ;; actual scenario plan
+  (let ((object-desig (desig:make-designator
+                       'desig:object
+                       `((type ,object-type)))))
     (pick-and-place-scenario object-desig)))
 
 (def-top-level-cram-function pick-and-place-scenario (object-desig)
