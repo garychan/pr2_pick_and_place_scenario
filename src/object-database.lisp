@@ -50,6 +50,26 @@
    :file (model-path "mug.urdf")
    :min-handles 1)
   (simple-knowledge::add-object-to-spawn
+   :name "mug2"
+   :type :mug
+   :handles `((,(tf:make-pose
+                 (tf:make-3d-vector 0.135 0 0.07)
+                 (tf:euler->quaternion :ax (/ pi 2)))
+               0.01))
+   :collision-parts `((,(tf:make-pose
+                         (tf:make-3d-vector 0.0 0.0 0.06)
+                         (tf:make-identity-rotation))
+                       :cylinder   ;; type
+                       0.05        ;; radius
+                       0.12))      ;; length
+   :pose (tf:make-pose-stamped
+          "map"
+          0.0
+          (tf:make-3d-vector -1.3 -1.1 0.6)
+          (tf:euler->quaternion :az (/ pi 4)))
+   :file (model-path "mug.urdf")
+   :min-handles 1)
+  (simple-knowledge::add-object-to-spawn
    :name "cooking_pot"
    :type :pot
    :handles `((,(tf:make-pose
