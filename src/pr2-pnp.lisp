@@ -45,6 +45,9 @@
   picked up."))
 
 (defmethod start-scenario :before (object-detail)
+  "Prepares the scenario, i.e. loads the knowledge base and spawns
+necessary objects in the Gazebo environment. Also, resets the belief
+state concerning objects in grippers."
   ;; Prepare the scenario
   (prepare-scenario)
   ;; Clear the attached objects
