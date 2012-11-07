@@ -24,8 +24,5 @@
   <!-- <include file="$(find gazebo_worlds)/launch/empty_world.launch"/> -->
   <include file="$(find pr2_gazebo)/launch/pr2_empty_world.launch"/>
 
-  <!-- load the semantic map -->
-  <!-- <node name="json_prolog" pkg="rosprolog" type="run_with_prolog_env" args="pr2_pick_and_place_scenario $(find json_prolog)/bin/json_prolog" /> -->
-
   <include file="$(find pr2_pick_and_place_scenario)/launch/spawn_objects.launch"/>
 </launch>
