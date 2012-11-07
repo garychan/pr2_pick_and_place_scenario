@@ -125,7 +125,7 @@ succeeds, fail otherwiese'."
                        (pr2-pick-and-place-scenario)
                        "Failed to grasp object of that description.")
                       (setf perceived-objects (rest perceived-objects))
-                      (when (> (length perceived-objects) 0)
+                      (when perceived-objects
                         (roslisp:ros-info (pr2-pick-and-place-scenario)
                                           "Trying the next.")
                         (retry))))
