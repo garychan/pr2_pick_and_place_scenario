@@ -28,6 +28,7 @@
   <depend package="simple_knowledge" />
   <depend package="cram_physics_utils" />
   <depend package="cram_gazebo_utilities" />
+  <depend package="semantic_map_costmap" />
   <!-- extra dependencies for stuff that is in launch-files -->
   <depend package="gazebo" />
   <depend package="octomap_server" />
