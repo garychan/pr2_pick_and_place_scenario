@@ -1,5 +1,4 @@
 <launch>
   <!-- load the semantic map -->
-  <!-- <node name="json_prolog" pkg="rosprolog" type="run_with_prolog_env" args="pr2_pick_and_place_scenario $(find json_prolog)/bin/json_prolog" /> -->
   <node name="json_prolog" pkg="rosprolog" type="run_with_prolog_env" args="pr2_pick_and_place_scenario $(find json_prolog)/bin/json_prolog" />
 </launch>
