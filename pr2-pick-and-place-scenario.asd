@@ -47,7 +47,8 @@
 	       simple-belief
 	       simple-knowledge
 	       physics-utils
-	       cram-gazebo-utilities)
+	       cram-gazebo-utilities
+	       semantic-map-costmap)
   :components
   ((:module "src"
 	    :components
