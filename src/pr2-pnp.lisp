@@ -39,41 +39,20 @@
   (simple-knowledge::reposition-objects)
   (setf simple-belief::*attached-objects* nil))
 
-(defgeneric start-scenario (object-detail)
-  (:documentation "Starts the PR2 pick and place scenario with either
-  an object name or an object type symbol, defining what is to be
-  picked up."))
-
-(defmethod start-scenario :before (object-detail)
-  "Prepares the scenario, i.e. loads the knowledge base and spawns
-necessary objects in the Gazebo environment. Also, resets the belief
-state concerning objects in grippers."
-  ;; Prepare the scenario
-  (prepare-scenario)
-  ;; Clear the attached objects
-  (setf simple-belief::*attached-objects* nil))
-
-(defmethod start-scenario ((object-name string))
+(defmethod start-scenario (&key object-name object-type)
   "Starts the scenario and takes the unique object identifier as
 reference to the Gazebo object instance. This will result in a
 behaviour like 'get this instance and no other, fail otherwise'."
   ;; Create an object designator from the object name and call the
   ;; actual scenario plan
+  ;; Prepare the scenario
+  (prepare-scenario)
+  ;; Clear the attached objects
+  (setf simple-belief::*attached-objects* nil)
   (let ((object-desig (desig:make-designator
                        'desig:object
-                       `((name ,object-name)))))
-    (pick-and-place-scenario object-desig)))
-
-(defmethod start-scenario (object-type)
-  "Starts the scenario and takes the object category type as reference
-to possibly multiple Gazebo object instances. This will result in a
-behaviour like 'try all object instances of this type until either one
-succeeds, fail otherwiese'."
-  ;; Create an object designator from the object type and call the
-  ;; actual scenario plan
-  (let ((object-desig (desig:make-designator
-                       'desig:object
-                       `((type ,object-type)))))
+                       (append (when object-name `((name ,object-name)))
+                               (when object-type `((type ,object-type)))))))
     (pick-and-place-scenario object-desig)))
 
 (def-top-level-cram-function pick-and-place-scenario (object-desig)
