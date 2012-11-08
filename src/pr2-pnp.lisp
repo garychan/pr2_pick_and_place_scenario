@@ -108,45 +108,50 @@ succeeds, fail otherwiese'."
       ;; want one of the objects of type `mug', there are multiple
       ;; instances to try. Total failure is only signalled when no
       ;; instance could be grasped. This should reflect common sense.
-      (let* ((perceived-objects (cram-plan-library:perceive-object
-                                 'cram-plan-library:all
-                                 object-desig))
-             (obj-in-hand nil)
-             (former-obj-loc nil)
-             (perceived-object nil))
-        (cond ((eq (length perceived-objects) 0)
-               (ros-warn (pr2-pick-and-place-scenario)
-                         "Found no objects of that description."))
-              (t
-               (cram-language:with-failure-handling
-                   ((cram-plan-failures:manipulation-pose-unreachable (f)
-                      (declare (ignore f))
-                      (roslisp:ros-warn
-                       (pr2-pick-and-place-scenario)
-                       "Failed to grasp object of that description.")
-                      (setf perceived-objects (rest perceived-objects))
-                      (when perceived-objects
-                        (roslisp:ros-info (pr2-pick-and-place-scenario)
-                                          "Trying the next.")
-                        (retry))))
-                 (setf perceived-object (first perceived-objects))
-                 (setf former-obj-loc (desig-prop-value perceived-object 'at))
-                 (setf obj-in-hand (cram-designators:current-desig
-                                    (achieve
-                                     `(cram-plan-knowledge:object-in-hand
-                                       ,perceived-object)))))
-               (cond (obj-in-hand
+      (cram-designators:with-designators
+          ((put-down-location (location `((desig-props:on Cupboard)
+                                          (desig-props:name Fronttable)))))
+        (let* ((perceived-objects (cram-plan-library:perceive-object
+                                   'cram-plan-library:all
+                                   object-desig))
+               (obj-in-hand nil)
+               (former-obj-loc nil)
+               (perceived-object nil))
+          (cond ((not perceived-objects)
+                 (ros-warn (pr2-pick-and-place-scenario)
+                           "Found no objects of that description."))
+                (t
+                 (cram-language:with-failure-handling
+                     ((cram-plan-failures:manipulation-pose-unreachable (f)
+                        (declare (ignore f))
+                        (roslisp:ros-warn
+                         (pr2-pick-and-place-scenario)
+                         "Failed to grasp object of that description.")
+                        (setf perceived-objects (rest perceived-objects))
+                        (when perceived-objects
+                          (roslisp:ros-info (pr2-pick-and-place-scenario)
+                                            "Trying the next.")
+                          (retry))))
+                   (setf perceived-object (first perceived-objects))
+                   (setf former-obj-loc (desig-prop-value perceived-object 'at))
+                   (setf obj-in-hand (cram-designators:current-desig
+                                      (achieve
+                                       `(cram-plan-knowledge:object-in-hand
+                                         ,perceived-object)))))
+                 (cond
+                   (obj-in-hand
+                    (roslisp:ros-info
+                     (pr2-pick-and-place-scenario)
+                     "Successfully grasped object. Now placing it.")
+                    (let ((obj-placed (achieve
+                                       `(cram-plan-knowledge:object-placed-at
+                                         ,obj-in-hand
+                                         ;,former-obj-loc
+                                         ,put-down-location))))
                       (roslisp:ros-info
                        (pr2-pick-and-place-scenario)
-                       "Successfully grasped object. Now placing it.")
-                      (let ((obj-placed (achieve
-                                         `(cram-plan-knowledge:object-placed-at
-                                           ,obj-in-hand
-                                           ,former-obj-loc))))
-                        (roslisp:ros-info
-                         (pr2-pick-and-place-scenario)
-                         "Designator of placed object: ~a~%" obj-placed)))
-                     (t
-                      (roslisp:ros-warn
-                       (pr2-pick-and-place-scenario)
-                       "No object of that description could be grasped.")))))))))
+                       "Designator of placed object: ~a~%" obj-placed)))
+                   (t
+                    (roslisp:ros-warn
+                     (pr2-pick-and-place-scenario)
+                     "No object of that description could be grasped."))))))))))
