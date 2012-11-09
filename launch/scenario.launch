@@ -24,5 +24,9 @@
   <!-- <include file="$(find gazebo_worlds)/launch/empty_world.launch"/> -->
   <include file="$(find pr2_gazebo)/launch/pr2_empty_world.launch"/>
 
+  <!-- Include the launch file to spawn objects (tables, currently) -->
   <include file="$(find pr2_pick_and_place_scenario)/launch/spawn_objects.launch"/>
+
+  <!-- Include the launch file to start the semantic map node -->
+  <include file="$(find pr2_pick_and_place_scenario)/launch/startmap.launch"/>
 </launch>
