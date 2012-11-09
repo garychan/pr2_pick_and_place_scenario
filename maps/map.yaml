@@ -1,4 +1,4 @@
-image: map.png
+image: map_bounded.png
 resolution: 0.050000
 origin: [-12.250000, -10.850000, 0]
 negate: 0
