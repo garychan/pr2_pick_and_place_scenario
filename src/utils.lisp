@@ -30,15 +30,21 @@
 (defvar *pose-publisher* nil)
 
 (defun model-path (name)
-  (physics-utils:parse-uri (concatenate 'string
-                                         "package://pr2_pick_and_place_scenario/models/"
-                                         name)))
+  (physics-utils:parse-uri
+   (concatenate
+    'string
+    "package://pr2_pick_and_place_scenario/models/"
+    name)))
 
-(defmethod register-publishers (&key (pose-topic "/pr2pnp_pose_publisher"))
-  (setf *pose-publisher* (roslisp:advertise pose-topic "geometry_msgs/PoseStamped")))
+(defmethod register-publishers (&key
+                                  (pose-topic "/pr2pnp_pose_publisher"))
+  (setf *pose-publisher* (roslisp:advertise
+                          pose-topic
+                          "geometry_msgs/PoseStamped")))
 
 (defmethod pub-pose (pose-stamped)
-  (roslisp:publish *pose-publisher* (tf:pose-stamped->msg pose-stamped)))
+  (roslisp:publish *pose-publisher*
+                   (tf:pose-stamped->msg pose-stamped)))
 
 (defun get-latest-exectrace ()
   (cet:with-episode-knowledge cet:*last-episode-knowledge*
@@ -53,7 +59,6 @@
      ,@body))
 
 (defun get-object-instance (name)
-  (advertise-publishers)
   (top-level
     (with-process-modules
       (cram-plan-library:perceive-object
@@ -61,10 +66,10 @@
        (cram-designators:make-designator 'object
                                          `((name ,name)))))))
 
-(defun advertise-publishers ()
-  ;; NOTE(winkler): This initializes a pose publisher used for
-  ;; debugging.
-  (setf cram-plan-library::*pose-publisher*
-        (roslisp:advertise "/foo"
-                           "geometry_msgs/PoseStamped"
-                           :latch t)))
+(defun get-object-type-instances (type)
+  (top-level
+    (with-process-modules
+      (cram-plan-library:perceive-object
+       'cram-plan-library:all
+       (cram-designators:make-designator 'object
+                                         `((type ,type)))))))
