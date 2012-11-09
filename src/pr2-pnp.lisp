@@ -126,7 +126,7 @@ behaviour like 'get this instance and no other, fail otherwise'."
                     (let ((obj-placed (achieve
                                        `(cram-plan-knowledge:object-placed-at
                                          ,obj-in-hand
-                                         ;,former-obj-loc
+                                        ;,former-obj-loc
                                          ,put-down-location))))
                       (roslisp:ros-info
                        (pr2-pick-and-place-scenario)

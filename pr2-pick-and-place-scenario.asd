@@ -29,32 +29,37 @@
   :author "Jan Winkler <winkler@cs.uni-bremen.de>"
   :license "BSD"
   :description "PR2 Pick and Place Scenario"
-  
+
   :depends-on (cram-language
-	       roslisp
-	       cram-pr2-knowledge
-	       pr2-manipulation-knowledge
-	       pr2-reachability-costmap
+               roslisp
+               cram-pr2-knowledge
+               pr2-manipulation-knowledge
+               pr2-reachability-costmap
                cram-plan-library
                cram-plan-knowledge
-	       pr2-manipulation-process-module
+               pr2-manipulation-process-module
                cram-reasoning
                location-costmap
                point-head-process-module
                pr2-navigation-process-module
                gazebo-perception-process-module
-	       occupancy-grid-costmap
-	       simple-belief
-	       simple-knowledge
-	       physics-utils
-	       cram-gazebo-utilities
-	       semantic-map-costmap)
+               occupancy-grid-costmap
+               simple-belief
+               simple-knowledge
+               physics-utils
+               cram-gazebo-utilities
+               semantic-map-costmap)
   :components
   ((:module "src"
-	    :components
-	    ((:file "package")
-             (:file "designator-config" :depends-on ("package"))
-	     (:file "facts" :depends-on ("package"))
-	     (:file "utils" :depends-on ("package" "facts"))
-	     (:file "object-database" :depends-on ("package" "utils" "facts"))
-	     (:file "pr2-pnp" :depends-on ("package" "designator-config" "object-database" "utils" "facts"))))))
+    :components
+    ((:file "package")
+     (:file "designator-config" :depends-on ("package"))
+     (:file "facts" :depends-on ("package"))
+     (:file "utils" :depends-on ("package" "facts"))
+     (:file "object-database" :depends-on ("package" "utils" "facts"))
+     (:file "pr2-pnp"
+      :depends-on ("package"
+                   "designator-config"
+                   "object-database"
+                   "utils"
+                   "facts"))))))
