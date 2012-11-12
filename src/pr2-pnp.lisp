@@ -57,7 +57,6 @@ behaviour like 'get this instance and no other, fail otherwise'."
     (pick-and-place-scenario object-desig)))
 
 (def-top-level-cram-function pick-and-place-scenario (object-desig)
-  (advertise-publishers)
   (with-process-modules
     ;; First, lift the spine. This way, we can access more parts of
     ;; the environment.
