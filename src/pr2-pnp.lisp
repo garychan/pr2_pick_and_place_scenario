@@ -40,7 +40,7 @@
   (simple-knowledge::reposition-objects)
   (setf simple-belief::*attached-objects* nil))
 
-(defmethod start-scenario (&key object-name object-type)
+(defun start-scenario (&key object-name object-type)
   "Starts the scenario and takes the unique object identifier as
 reference to the Gazebo object instance. This will result in a
 behaviour like 'get this instance and no other, fail otherwise'."

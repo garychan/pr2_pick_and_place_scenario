@@ -36,13 +36,12 @@
     "package://pr2_pick_and_place_scenario/models/"
     name)))
 
-(defmethod register-publishers (&key
-                                  (pose-topic "/pr2pnp_pose_publisher"))
+(defun register-publishers (&key (pose-topic "/pr2pnp_pose_publisher"))
   (setf *pose-publisher* (roslisp:advertise
                           pose-topic
                           "geometry_msgs/PoseStamped")))
 
-(defmethod pub-pose (pose-stamped)
+(defun pub-pose (pose-stamped)
   (roslisp:publish *pose-publisher*
                    (tf:pose-stamped->msg pose-stamped)))
 
