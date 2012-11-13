@@ -33,4 +33,5 @@
   (:desig-props #:name)
   (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj
                      #:lift #:at #:execute #:action #:type #:cylinder
-                     #:shape #:radius #:collision-part #:pose #:min-handles))
+                     #:shape #:radius #:collision-part #:pose #:min-handles
+                     #:mug #:pot))
