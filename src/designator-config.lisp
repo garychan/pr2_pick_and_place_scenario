@@ -40,12 +40,7 @@
 (crs:def-fact-group process-modules (matching-process-module available-process-module)
 
   (crs:<- (matching-process-module ?designator gazebo-perception-process-module)
-    (desig-prop ?designator (to perceive)))
-
-  (crs:<- (matching-process-module ?designator point-head-process-module)
-    (trajectory-desig? ?designator)
-    (or (desig-prop ?designator (to see))
-        (desig-prop ?designator (to follow)))))
+    (desig-prop ?designator (to perceive))))
 
 ;;(def-fact-group location-costmap-desigs (desig-costmap)
 
