@@ -29,8 +29,7 @@
 
 (defun prepare-scenario ()
   (fill-object-list)
-  (simple-knowledge::spawn-objects)
-  (register-publishers))
+  (simple-knowledge::spawn-objects))
 
 (defun reset ()
   (top-level

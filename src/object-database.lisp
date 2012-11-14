@@ -31,7 +31,7 @@
   (simple-knowledge::clear-object-list)
   (simple-knowledge::add-object-to-spawn
    :name "mug1"
-   :type :mug
+   :type 'mug
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.135 0 0.07)
                  (tf:euler->quaternion :ax (/ pi 2)))
@@ -51,7 +51,7 @@
    :min-handles 1)
   (simple-knowledge::add-object-to-spawn
    :name "mug2"
-   :type :mug
+   :type 'mug
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.135 0 0.07)
                  (tf:euler->quaternion :ax (/ pi 2)))
@@ -71,7 +71,7 @@
    :min-handles 1)
   (simple-knowledge::add-object-to-spawn
    :name "cooking_pot"
-   :type :pot
+   :type 'pot
    :handles `((,(tf:make-pose
                  (tf:make-3d-vector 0.23 0.0 0.12)
                  (tf:make-identity-rotation))

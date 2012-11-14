@@ -41,6 +41,8 @@
                           pose-topic
                           "geometry_msgs/PoseStamped")))
 
+(cram-roslisp-common:register-ros-init-function register-publishers)
+
 (defun pub-pose (pose-stamped)
   (roslisp:publish *pose-publisher*
                    (tf:pose-stamped->msg pose-stamped)))
