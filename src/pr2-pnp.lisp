@@ -88,7 +88,7 @@ behaviour like 'get this instance and no other, fail otherwise'."
       ;; instance could be grasped. This should reflect common sense.
       (cram-designators:with-designators
           ((put-down-location (location `((desig-props:on Cupboard)
-                                          (desig-props:name Fronttable)))))
+                                          (desig-props:name "Fronttable")))))
         (let* ((perceived-objects (cram-plan-library:perceive-object
                                    'cram-plan-library:all
                                    object-desig))
