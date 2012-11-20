@@ -43,6 +43,10 @@
   "Starts the scenario and takes the unique object identifier as
 reference to the Gazebo object instance. This will result in a
 behaviour like 'get this instance and no other, fail otherwise'."
+  (unless (or object-name object-type)
+    (roslisp:ros-warn
+     (pr2-pick-and-place-scenario)
+     "Either the object name or the type has to be specified."))
   ;; Create an object designator from the object name and call the
   ;; actual scenario plan
   ;; Prepare the scenario
