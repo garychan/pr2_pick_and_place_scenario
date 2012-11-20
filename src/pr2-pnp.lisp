@@ -40,9 +40,11 @@
   (setf simple-belief::*attached-objects* nil))
 
 (defun start-scenario (&key object-name object-type)
-  "Starts the scenario and takes the unique object identifier as
-reference to the Gazebo object instance. This will result in a
-behaviour like 'get this instance and no other, fail otherwise'."
+  "Starts the scenario and takes a unique object identifier or an
+object type as reference to the Gazebo object instance(s). This will
+result in a behavior like 'get this instance and no other, fail
+otherwise' for object names or 'get any instance of this type, fail
+otherwise' for object types."
   (unless (or object-name object-type)
     (roslisp:ros-warn
      (pr2-pick-and-place-scenario)
