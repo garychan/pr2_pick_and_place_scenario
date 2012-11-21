@@ -37,7 +37,7 @@
       (pr2-manip-pm::open-gripper :left :position 0.04)
       (pr2-manip-pm::open-gripper :right :position 0.04)))
   (simple-knowledge::reposition-objects)
-  (setf simple-belief::*attached-objects* nil))
+  (plan-knowledge:clear-belief))
 
 (defun start-scenario (&key object-name object-type)
   "Starts the scenario and takes a unique object identifier or an
@@ -54,7 +54,7 @@ otherwise' for object types."
   ;; Prepare the scenario
   (prepare-scenario)
   ;; Clear the attached objects
-  (setf simple-belief::*attached-objects* nil)
+  (plan-knowledge:clear-belief)
   (let ((object-desig (desig:make-designator
                        'desig:object
                        (append (when object-name `((name ,object-name)))
