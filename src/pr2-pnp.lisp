@@ -29,14 +29,14 @@
 
 (defun prepare-scenario ()
   (fill-object-list)
-  (simple-knowledge::spawn-objects))
+  (simple-knowledge:spawn-objects))
 
 (defun reset ()
   (top-level
     (par
       (pr2-manip-pm::open-gripper :left :position 0.04)
       (pr2-manip-pm::open-gripper :right :position 0.04)))
-  (simple-knowledge::reposition-objects)
+  (simple-knowledge:reposition-objects)
   (plan-knowledge:clear-belief))
 
 (defun start-scenario (&key object-name object-type)
