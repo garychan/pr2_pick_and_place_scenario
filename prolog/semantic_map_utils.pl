@@ -15,7 +15,7 @@
 %% along with this program.  If not, see <http://www.gnu.org/licenses/>.
 %%
 
-:- module(ias_semantic_map,
+:- module(pr2pnp_semantic_map,
     [
       readMap/1,
       rdf_atom_no_ns/2,
