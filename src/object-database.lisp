@@ -33,8 +33,8 @@
    :name "mug1"
    :type 'mug
    :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.135 0 0.07)
-                 (tf:euler->quaternion :ax (/ pi 2)))
+                 (tf:make-3d-vector -0.135 0 0.07)
+                 (tf:euler->quaternion :ax (/ pi 2) :az pi))
                0.01))
    :collision-parts `((,(tf:make-pose
                          (tf:make-3d-vector 0.0 0.0 0.06)
@@ -46,15 +46,15 @@
           "map"
           0.0
           (tf:make-3d-vector -1.0 -1.2 0.6)
-          (tf:euler->quaternion :az (/ pi 4)))
+          (tf:euler->quaternion :az (+ (/ pi 4) pi)))
    :file (model-path "mug.urdf")
    :min-handles 1)
   (simple-knowledge::add-object-to-spawn
    :name "mug2"
    :type 'mug
    :handles `((,(tf:make-pose
-                 (tf:make-3d-vector 0.135 0 0.07)
-                 (tf:euler->quaternion :ax (/ pi 2)))
+                 (tf:make-3d-vector -0.135 0 0.07)
+                 (tf:euler->quaternion :ax (/ pi 2) :az pi))
                0.01))
    :collision-parts `((,(tf:make-pose
                          (tf:make-3d-vector 0.0 0.0 0.06)
@@ -66,7 +66,7 @@
           "map"
           0.0
           (tf:make-3d-vector -1.3 -1.1 0.6)
-          (tf:euler->quaternion :az (/ pi 4)))
+          (tf:euler->quaternion :az (+ (/ pi 4) pi)))
    :file (model-path "mug.urdf")
    :min-handles 1)
   (simple-knowledge::add-object-to-spawn
@@ -86,7 +86,22 @@
           (tf:make-3d-vector -0.4 -1.5 0.6)
           (tf:euler->quaternion :az -0.4))
    :file (model-path "Cookingpot_2.urdf")
-   :min-handles 2))
+   :min-handles 2)
+  (simple-knowledge::add-object-to-spawn
+   :name "iron"
+   :type 'mug
+   :handles `((,(tf:make-pose
+                 (tf:make-3d-vector 0.0 0.06 0.14)
+                 (tf:euler->quaternion :ay (/ pi -2) :az pi))
+               0.01))
+   :pose (tf:make-pose-stamped
+          "map"
+          0.0
+          (tf:make-3d-vector 1.8 0.2 1.0)
+          (tf:euler->quaternion :az 1.57))
+   :file (model-path "iron_2.urdf")
+   :min-handles 1))
+
   ;; (simple-knowledge::add-object-to-spawn
   ;;  :name "green_bottle"
   ;;  :type :bottle
