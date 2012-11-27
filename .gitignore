@@ -2,3 +2,4 @@ build
 *~
 *.pgm
 *.owl
+prolog/pr2pnp_semantic_map.pl
