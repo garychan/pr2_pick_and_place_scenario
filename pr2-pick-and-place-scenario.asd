@@ -44,8 +44,11 @@
                pr2-navigation-process-module
                gazebo-perception-process-module
                occupancy-grid-costmap
-               simple-belief
+               cram-environment-representation
+               pr2-reachability-costmap
+               object-location-designators
                simple-knowledge
+               bullet-reasoning-designators
                physics-utils
                cram-gazebo-utilities
                semantic-map-costmap)
