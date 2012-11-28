@@ -27,7 +27,8 @@
 
 (desig-props:def-desig-package pr2-pick-and-place-scenario
   (:use #:location-costmap #:roslisp #:cram-utilities #:cpl
-        #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators)
+        #:cram-roslisp-common #:cram-plan-knowledge #:cram-designators
+        #:cram-plan-library)
   (:import-from #:cram-reasoning #:<- #:def-fact-group)
   (:desig-props #:name)
   (:desig-properties #:grasp #:to #:name #:handle #:trajectory #:obj
