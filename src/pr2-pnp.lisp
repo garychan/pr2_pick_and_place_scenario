@@ -29,7 +29,8 @@
 
 (defun prepare-scenario ()
   (fill-object-list)
-  (simple-knowledge:spawn-objects))
+  (simple-knowledge:spawn-objects)
+  (plan-knowledge:clear-belief))
 
 (defun reset ()
   (top-level
