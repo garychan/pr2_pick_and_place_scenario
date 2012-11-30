@@ -30,5 +30,5 @@
   <!-- Include the launch file to start the semantic map node -->
   <include file="$(find pr2_pick_and_place_scenario)/launch/startmap.launch" />
 
-  <include file="$(find pr2_pick_and_place_scenario)/launch/environment_representation" />
+  <include file="$(find pr2_pick_and_place_scenario)/launch/environment_representation.launch" />
 </launch>
