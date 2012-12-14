@@ -1,0 +1,1504 @@
+<gazebo version='1.0'>
+  <model name=the_island static=true>
+    <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+    <link name='kitchen_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <inertial mass='41.000000' density='1.000000'>
+        <origin pose='2.432180 0.810827 0.601756 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='112.665000' ixy='-60.134000' ixz='-34.778100' iyy='402.092000' iyz='-26.864900' izz='390.002000'/>
+      </inertial>
+      <collision name='kitchen_link_geom_counter_side_island_back_link' laser_retro='0.000000'>
+        <origin pose='3.689330 0.570006 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.020000 2.200000 0.820000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_counter_side_island_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.689330 0.570006 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.020000 2.200000 0.820000'/>
+        </geometry>
+        <material script='Gazebo/Grey'/>
+      </visual>
+      <collision name='kitchen_link_geom_counter_side_island_left_link' laser_retro='0.000000'>
+        <origin pose='3.399990 1.685180 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.600000 0.030000 0.820000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_counter_side_island_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.399990 1.685180 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.600000 0.030000 0.820000'/>
+        </geometry>
+        <material script='Gazebo/Grey'/>
+      </visual>
+      <collision name='kitchen_link_geom_counter_side_island_right_link' laser_retro='0.000000'>
+        <origin pose='3.398670 -0.544822 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.600000 0.030000 0.820000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_counter_side_island_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.398670 -0.544822 0.410000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.600000 0.030000 0.820000'/>
+        </geometry>
+        <material script='Gazebo/Grey'/>
+      </visual>
+      <collision name='kitchen_link_geom_counter_top_island_link' laser_retro='0.000000'>
+        <origin pose='3.399330 0.575178 0.835000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.800000 2.450000 0.030000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='50000.000000' mu2='50000.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='100000.000000' kd='1000000.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_counter_top_island_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.399330 0.575178 0.835000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.800000 2.450000 0.030000'/>
+        </geometry>
+        <!--material script='Gazebo/LightWood'/-->
+      </visual>
+      <collision name='kitchen_link_geom_skirting_island_link' laser_retro='0.000000'>
+        <origin pose='3.424330 0.570163 0.050000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.510000 2.200000 0.100000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_skirting_island_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.424330 0.570163 0.050000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.510000 2.200000 0.100000'/>
+        </geometry>
+        <material script='Gazebo/Grey'/>
+      </visual>
+      <collision name='kitchen_link_geom_stove_link' laser_retro='0.000000'>
+        <origin pose='3.398880 -0.194822 0.852500 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.500000 0.570000 0.005000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_stove_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.398880 -0.194822 0.852500 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.500000 0.570000 0.005000'/>
+        </geometry>
+        <material script='Gazebo/Black'/>
+      </visual>      
+      <collision name='kitchen_link_geom_white_counter_top_island_link' laser_retro='0.000000'>
+        <origin pose='3.399330 0.575178 0.851000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.800000 2.450000 0.002000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='50000.000000' mu2='50000.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='100000.000000' kd='1000000.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='kitchen_link_geom_white_counter_top_island_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='3.399330 0.575178 0.851000 0.000000 -0.000000 3.141000'/>
+        <geometry>
+          <box size='0.800000 2.450000 0.002000'/>
+        </geometry>
+        <!--material script='Gazebo/LightWood'/-->
+      </visual>
+      <sensor name='counter_top_sensor' type='contact' always_on='0' update_rate='1.000000' visualize='0'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <contact>
+          <collision name='kitchen_link_geom_white_counter_top_island_link'/>
+        </contact>  
+      </sensor>
+    </link>
+    <link name='drawer_island_col1_bottom_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129800 1.370340 0.245000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.096157' ixy='0.000000' ixz='-0.000578' iyy='0.148072' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col1_bottom_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_drawer_island_col1_bottom_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_bottom_link_geom_handle_drawer_island_col1_bottom_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_bottom_link_geom_handle_drawer_island_col1_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col1_center_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129800 1.370340 0.535000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.096157' ixy='0.000000' ixz='-0.000578' iyy='0.148072' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col1_center_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_center_link_geom_drawer_island_col1_center_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_drawer_island_col1_center_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_center_link_geom_drawer_island_col1_center_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_drawer_island_col1_center_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_center_link_geom_drawer_island_col1_center_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_drawer_island_col1_center_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_center_link_geom_drawer_island_col1_center_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_drawer_island_col1_center_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_center_link_geom_handle_drawer_island_col1_center_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_center_link_geom_handle_drawer_island_col1_center_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col1_top_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129800 1.370340 0.750000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.000343 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.077582' ixy='0.000000' ixz='-0.000109' iyy='0.147247' iyz='0.000000' izz='0.077051'/>
+      </inertial>
+      <collision name='drawer_island_col1_top_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.140000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.135000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_top_link_geom_drawer_island_col1_top_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_drawer_island_col1_top_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_top_link_geom_drawer_island_col1_top_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_drawer_island_col1_top_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_top_link_geom_drawer_island_col1_top_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_drawer_island_col1_top_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_top_link_geom_drawer_island_col1_top_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_drawer_island_col1_top_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col1_top_link_geom_handle_drawer_island_col1_top_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col1_top_link_geom_handle_drawer_island_col1_top_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col2_bottom_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129330 0.570338 0.245000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.247523' ixy='0.000000' ixz='-0.000578' iyy='0.299439' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col2_bottom_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 1.000000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.995000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_drawer_island_col2_bottom_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_bottom_link_geom_handle_drawer_island_col2_bottom_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.910000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_bottom_link_geom_handle_drawer_island_col2_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.905000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col2_center_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129330 0.570338 0.535000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.247523' ixy='0.000000' ixz='-0.000578' iyy='0.299439' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col2_center_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 1.000000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.995000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_center_link_geom_drawer_island_col2_center_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_drawer_island_col2_center_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_center_link_geom_drawer_island_col2_center_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_drawer_island_col2_center_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_center_link_geom_drawer_island_col2_center_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_drawer_island_col2_center_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_center_link_geom_drawer_island_col2_center_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_drawer_island_col2_center_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_center_link_geom_handle_drawer_island_col2_center_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.910000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_center_link_geom_handle_drawer_island_col2_center_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.905000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col2_top_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.129330 0.570338 0.750000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.000343 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.228948' ixy='0.000000' ixz='-0.000109' iyy='0.298614' iyz='0.000000' izz='0.077051'/>
+      </inertial>
+      <collision name='drawer_island_col2_top_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 1.000000 0.140000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.995000 0.135000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_top_link_geom_drawer_island_col2_top_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_drawer_island_col2_top_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.900000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_top_link_geom_drawer_island_col2_top_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_drawer_island_col2_top_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.900000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_top_link_geom_drawer_island_col2_top_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_drawer_island_col2_top_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_top_link_geom_drawer_island_col2_top_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_drawer_island_col2_top_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.440000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col2_top_link_geom_handle_drawer_island_col2_top_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.910000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col2_top_link_geom_handle_drawer_island_col2_top_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.905000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col3_bottom_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.128860 -0.229662 0.245000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.096157' ixy='0.000000' ixz='-0.000578' iyy='0.148072' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col3_bottom_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_drawer_island_col3_bottom_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_bottom_link_geom_handle_drawer_island_col3_bottom_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_bottom_link_geom_handle_drawer_island_col3_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col3_center_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.128860 -0.229662 0.535000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.001814 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.096157' ixy='0.000000' ixz='-0.000578' iyy='0.148072' iyz='0.000000' izz='0.094801'/>
+      </inertial>
+      <collision name='drawer_island_col3_center_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.290000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.285000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_center_link_geom_drawer_island_col3_center_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_drawer_island_col3_center_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_center_link_geom_drawer_island_col3_center_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_drawer_island_col3_center_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.110000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_center_link_geom_drawer_island_col3_center_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_drawer_island_col3_center_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_center_link_geom_drawer_island_col3_center_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_drawer_island_col3_center_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.240000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_center_link_geom_handle_drawer_island_col3_center_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_center_link_geom_handle_drawer_island_col3_center_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.092500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <link name='drawer_island_col3_top_link' gravity='1' self_collide='0' kinematic='0'>
+      <origin pose='3.128860 -0.229662 0.750000 0.000000 -0.000000 3.141000'/>
+      <inertial mass='5.100000' density='1.000000'>
+        <origin pose='0.001225 0.000000 0.000343 0.000000 -0.000000 0.000000'/>
+        <inertia ixx='0.077582' ixy='0.000000' ixz='-0.000109' iyy='0.147247' iyz='0.000000' izz='0.077051'/>
+      </inertial>
+      <collision name='drawer_island_col3_top_link_geom' laser_retro='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.600000 0.140000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.595000 0.135000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_top_link_geom_drawer_island_col3_top_back_link' laser_retro='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_drawer_island_col3_top_back_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.540000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.020000 0.500000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_top_link_geom_drawer_island_col3_top_bottom_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_drawer_island_col3_top_bottom_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.000000 -0.035000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.500000 0.020000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_top_link_geom_drawer_island_col3_top_left_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_drawer_island_col3_top_left_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 -0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_top_link_geom_drawer_island_col3_top_right_link' laser_retro='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_drawer_island_col3_top_right_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='-0.270000 0.240000 0.000000 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.540000 0.020000 0.090000'/>
+        </geometry>
+        <material script='Ias/KitchenLightGray'/>
+      </visual>
+      <collision name='drawer_island_col3_top_link_geom_handle_drawer_island_col3_top_link' laser_retro='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.015000 0.510000 0.015000'/>
+        </geometry>
+        <surface>
+          <friction>
+            <ode mu='-1.000000' mu2='-1.000000' fdir1='0.000000 0.000000 0.000000' slip1='0.000000' slip2='0.000000'/>
+          </friction>
+          <bounce restitution_coefficient='0.000000' threshold='100000.000000'/>
+          <contact>
+            <ode soft_cfm='0.000000' soft_erp='0.200000' kp='1000000000000.000000' kd='1.000000' max_vel='100.000000' min_depth='0.001000'/>
+          </contact>
+        </surface>
+      </collision>
+      <visual name='drawer_island_col3_top_link_geom_handle_drawer_island_col3_top_link_visual' cast_shadows='1' laser_retro='0.000000' transparency='0.000000'>
+        <origin pose='0.062500 0.000000 0.017500 0.000000 -0.000000 0.000000'/>
+        <geometry>
+          <box size='0.010000 0.505000 0.010000'/>
+        </geometry>
+        <material script='Ias/KitchenDarkGray'/>
+      </visual>
+    </link>
+    <joint name='island_block_drawer_island_col1_bottom_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col1_bottom_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col1_center_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col1_center_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col1_top_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col1_top_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col2_bottom_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col2_bottom_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col2_center_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col2_center_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col2_top_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col2_top_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col3_bottom_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col3_bottom_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col3_center_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col3_center_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+    <joint name='island_block_drawer_island_col3_top_joint' type='prismatic'>
+      <origin pose='0.000000 0.000000 0.000000 0.000000 -0.000000 0.000000'/>
+      <parent link='kitchen_link'/>
+      <child link='drawer_island_col3_top_link'/>
+      <axis xyz='-0.999000 0.000592 0.044000'>
+        <dynamics damping='0.000000' friction='0.000000'/>
+        <limit lower='0.000000' upper='0.480000' effort='0.000000' velocity='0.000000'/>
+      </axis>
+    </joint>
+  </model>
+</gazebo>
