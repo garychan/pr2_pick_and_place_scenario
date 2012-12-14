@@ -32,6 +32,7 @@
   <depend package="semantic_map_costmap" />
   <depend package="pr2_reachability_costmap" />
   <depend package="object_location_designators" />
+  <depend package="pr2_manipulation_knowledge" />
   <!-- extra dependencies for stuff that is in launch-files -->
   <depend package="gazebo" />
   <depend package="octomap_server" />
