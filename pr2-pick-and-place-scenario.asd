@@ -51,7 +51,8 @@
                bullet-reasoning-designators
                physics-utils
                cram-gazebo-utilities
-               semantic-map-costmap)
+               semantic-map-costmap
+               pr2-manipulation-knowledge)
   :components
   ((:module "src"
     :components
