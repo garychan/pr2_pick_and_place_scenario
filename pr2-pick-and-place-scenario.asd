@@ -57,6 +57,7 @@
   ((:module "src"
     :components
     ((:file "package")
+     (:file "spine" :depends-on ("package"))
      (:file "designator-config" :depends-on ("package"))
      (:file "facts" :depends-on ("package"))
      (:file "utils" :depends-on ("package" "facts"))
@@ -66,4 +67,5 @@
                    "designator-config"
                    "object-database"
                    "utils"
-                   "facts"))))))
+                   "facts"
+                   "spine"))))))

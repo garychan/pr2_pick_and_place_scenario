@@ -66,66 +66,52 @@ otherwise' for object types."
   (with-process-modules
     ;; First, lift the spine. This way, we can access more parts of
     ;; the environment.
-    (let ((spine-lift-trajectory (roslisp:make-msg
-                                  "trajectory_msgs/JointTrajectory"
-                                  (stamp header)
-                                  (roslisp:ros-time)
-                                  joint_names #("torso_lift_joint")
-                                  points (vector
-                                          (roslisp:make-message
-                                           "trajectory_msgs/JointTrajectoryPoint"
-                                           positions #(0.2)
-                                           velocities #(0)
-                                           accelerations #(0)
-                                           time_from_start 5.0)))))
-      (roslisp:ros-info (pick-and-place-scenario) "Moving up spine")
-      (pr2-manip-pm::execute-torso-command spine-lift-trajectory)
-      (roslisp:ros-info (pick-and-place-scenario) "Moving spine complete")
-      ;; NOTE(winkler): We are retrieving all perceived objects here
-      ;; that match the description given by `object-desig' and are
-      ;; going through them until we grasped one of them
-      ;; successfully. This is done with the help of failure handling
-      ;; capabilities of CRAM (with-failure-handling). Basically, when
-      ;; we say, we want one of the mugs by the name `mug1', there is
-      ;; only one mug to get (since names are marking unique
-      ;; instances). The loop will therefore terminate as soon as this
-      ;; one either was grasped or the grasp failed. When we say, we
-      ;; want one of the objects of type `mug', there are multiple
-      ;; instances to try. Total failure is only signalled when no
-      ;; instance could be grasped. This should reflect common sense.
-      (cram-designators:with-designators
-          ((put-down-location (location `((desig-props:on Cupboard)
-                                          (desig-props:name "Fronttable")))))
-        (let* ((perceived-objects (cram-plan-library:perceive-object
-                                   'cram-plan-library:all
-                                   object-desig))
-               (obj-placed nil)
-               (perceived-object nil))
-          (cond ((not perceived-objects)
-                 (ros-warn (pr2-pick-and-place-scenario)
-                           "Found no objects of that description."))
-                (t
-                 (cram-language:with-failure-handling
-                     ((cram-plan-failures:manipulation-pickup-failed (f)
-                        (declare (ignore f))
-                        (roslisp:ros-warn
-                         (pr2-pick-and-place-scenario)
-                         "Failed to grasp object of that description.")
-                        (setf perceived-objects (rest perceived-objects))
-                        (when perceived-objects
-                          (roslisp:ros-info (pr2-pick-and-place-scenario)
-                                            "Trying the next.")
-                          (retry)))
-                      (cram-plan-failures:manipulation-pose-occupied (f)
-                        (declare (ignore f))
-                        (roslisp:ros-warn
-                         (pr2-pick-and-place-scenario)
-                         "Putdown failed due to an occupied putdown pose.")))
-                   (setf perceived-object (first perceived-objects))
-                   ;(setf former-obj-loc (desig-prop-value perceived-object 'at))
-                   (setf obj-placed (achieve `(cram-plan-knowledge:loc
-                                               ,perceived-object
-                                               ,put-down-location)))
-                   (roslisp:ros-info
-                    (pr2-pick-and-place-scenario)
-                    "Designator of placed object: ~a~%" obj-placed)))))))))
+    (move-spine-to 0.2)
+    ;; NOTE(winkler): We are retrieving all perceived objects here
+    ;; that match the description given by `object-desig' and are
+    ;; going through them until we grasped one of them
+    ;; successfully. This is done with the help of failure handling
+    ;; capabilities of CRAM (with-failure-handling). Basically, when
+    ;; we say, we want one of the mugs by the name `mug1', there is
+    ;; only one mug to get (since names are marking unique
+    ;; instances). The loop will therefore terminate as soon as this
+    ;; one either was grasped or the grasp failed. When we say, we
+    ;; want one of the objects of type `mug', there are multiple
+    ;; instances to try. Total failure is only signalled when no
+    ;; instance could be grasped. This should reflect common sense.
+    (cram-designators:with-designators
+        ((put-down-location (location `((desig-props:on Cupboard)
+                                        (desig-props:name "Fronttable")))))
+      (let* ((perceived-objects (cram-plan-library:perceive-object
+                                  'cram-plan-library:all
+                                  object-desig))
+              (obj-placed nil)
+              (perceived-object nil))
+        (cond ((not perceived-objects)
+                (ros-warn (pr2-pick-and-place-scenario)
+                          "Found no objects of that description."))
+              (t
+                (cram-language:with-failure-handling
+                    ((cram-plan-failures:manipulation-pickup-failed (f)
+                      (declare (ignore f))
+                      (roslisp:ros-warn
+                        (pr2-pick-and-place-scenario)
+                        "Failed to grasp object of that description.")
+                      (setf perceived-objects (rest perceived-objects))
+                      (when perceived-objects
+                        (roslisp:ros-info (pr2-pick-and-place-scenario)
+                                          "Trying the next.")
+                        (retry)))
+                    (cram-plan-failures:manipulation-pose-occupied (f)
+                      (declare (ignore f))
+                      (roslisp:ros-warn
+                        (pr2-pick-and-place-scenario)
+                        "Putdown failed due to an occupied putdown pose.")))
+                  (setf perceived-object (first perceived-objects))
+                  ;(setf former-obj-loc (desig-prop-value perceived-object 'at))
+                  (setf obj-placed (achieve `(cram-plan-knowledge:loc
+                                              ,perceived-object
+                                              ,put-down-location)))
+                  (roslisp:ros-info
+                  (pr2-pick-and-place-scenario)
+                  "Designator of placed object: ~a~%" obj-placed))))))))
