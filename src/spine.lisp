@@ -48,8 +48,8 @@
             accelerations #(0)
             time_from_start 0.1))))
 
-(defun spine-position-reached (position)
-  (< (abs (- (get-current-spine-pos) position)) 0.001))
+(defun spine-position-reached (position &key (threshold 0.005))
+  (< (abs (- (get-current-spine-pos) position)) threshold))
 
 (defun move-spine-to (position)
   (roslisp:ros-info (pick-and-place-scenario) "Moving spine")
@@ -59,6 +59,6 @@
               (or  (and (<= position 0.013)
                         (<= (get-current-spine-pos) 0.013)) ;Spine can't reach 0
                    (and (>= position 0.32) ;Maximum is ~32.5
-                        (>= (get-current-spine-pos) 0.032))))
+                        (>= (get-current-spine-pos) 0.32))))
       (roslisp:ros-info (pick-and-place-scenario) "Moving spine complete") 
       (return))))
